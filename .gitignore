@@ -1,3 +1,4 @@
+# Ignore local Python environment artifacts.
 pyspark_env/
 __pycache__/
 *.pyc
