@@ -1,0 +1,7 @@
+order_id,customer_id,store,product,amount
+1001,C101,Bangalore,Laptop,80000
+1002,C102,Delhi,Phone,30000
+1003,C101,Bangalore,Mouse,2000
+1004,C103,Mumbai,Laptop,75000
+1005,C104,Delhi,Keyboard,5000
+1006,C101,Bangalore,Phone,25000

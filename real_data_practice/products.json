@@ -1,0 +1,81 @@
+[
+  {
+    "product_id": "P100",
+    "product_name": "Laptop Pro 14",
+    "category": "Electronics",
+    "brand": "NovaTech",
+    "unit_cost": 950.0,
+    "list_price": 1299.0,
+    "is_active": true,
+    "attributes": {
+      "screen": "14 inch",
+      "ram": "16 GB",
+      "storage": "512 GB SSD"
+    }
+  },
+  {
+    "product_id": "P101",
+    "product_name": "Wireless Mouse",
+    "category": "Accessories",
+    "brand": "NovaTech",
+    "unit_cost": 18.0,
+    "list_price": 39.0,
+    "is_active": true,
+    "attributes": {
+      "connectivity": "Bluetooth",
+      "battery_life": "12 months"
+    }
+  },
+  {
+    "product_id": "P102",
+    "product_name": "4K Monitor",
+    "category": "Electronics",
+    "brand": "DisplayX",
+    "unit_cost": 320.0,
+    "list_price": 499.0,
+    "is_active": true,
+    "attributes": {
+      "resolution": "4K",
+      "panel": "IPS"
+    }
+  },
+  {
+    "product_id": "P103",
+    "product_name": "Mechanical Keyboard",
+    "category": "Accessories",
+    "brand": "KeyZen",
+    "unit_cost": 60.0,
+    "list_price": 99.0,
+    "is_active": true,
+    "attributes": {
+      "layout": "Full size",
+      "switch": "Red"
+    }
+  },
+  {
+    "product_id": "P104",
+    "product_name": "USB-C Hub",
+    "category": "Accessories",
+    "brand": "DockMate",
+    "unit_cost": 35.0,
+    "list_price": 69.0,
+    "is_active": false,
+    "attributes": {
+      "ports": "6",
+      "power_delivery": "65W"
+    }
+  },
+  {
+    "product_id": "P105",
+    "product_name": "Noise Cancelling Headphones",
+    "category": "Electronics",
+    "brand": "AudioWave",
+    "unit_cost": 120.0,
+    "list_price": 219.0,
+    "is_active": true,
+    "attributes": {
+      "type": "Over-ear",
+      "battery": "40 hours"
+    }
+  }
+]

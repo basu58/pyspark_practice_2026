@@ -1,0 +1,52 @@
+Senior Data Engineer PySpark Practical Interview Questions (5.5 Years Experience)
+Context: Use real-world patterns common in data engineering: schema validation, data quality, deduplication, join optimization, incremental loads, retention analysis, late-arriving data, partition pruning, and pipeline design.
+1. Read customers.csv, orders.csv, and products.json and build a fact table for daily revenue by customer segment, country, and month. Explain the join strategy and how you would handle late-arriving data.
+2. In customers.csv, detect duplicate customer IDs or duplicate natural keys. Write a deduplication strategy that keeps the most recent valid record and explains how you would log rejected duplicates.
+3. Validate orders.csv for nulls, negative amounts, invalid dates, and mismatched totals where quantity * unit_price != total_amount. Produce a quality report and quarantine invalid rows.
+4. Create an incremental load pattern for orders using a watermark or max(order_date) logic. Show how you would avoid reprocessing historical data in each run.
+5. Join orders.csv to customers.csv and compute active customer count, total revenue, average order value, and repeat purchase rate by country. Explain why you prefer a specific join type.
+6. Read products.json and flatten nested attributes such as screen, ram, storage, and connectivity into columns for downstream analytics. What schema issues might arise and how do you handle them?
+7. Using events.json, design a funnel analysis from page view -> add_to_cart -> purchase. Explain how you would calculate conversion rate at each stage and where to store intermediate results.
+8. Build a daily active users metric from events.json. Show how to handle user attribution across multiple sessions, repeated events, and duplicate device records.
+9. Design a customer retention cohort report using customers.csv and orders.csv. Compute 7-day, 30-day, and 90-day repeat purchase rates by signup month.
+10. Find customers who have no orders in the last 90 days and classify them as churned. Show the logic to calculate churn by segment and country.
+11. From orders.csv and products.json, compute category-wise gross profit: quantity * (unit_price - unit_cost), along with total revenue and margin percentage. Discuss how to handle null unit_cost values.
+12. Build a table of top products by revenue and by order count. Explain how you would aggregate and sort efficiently at scale and when to use approx_count_distinct.
+13. Detect outliers in order amounts using quantiles or Z-score logic. What would you do with unusually high or negative orders before loading into the warehouse?
+14. Use events.json to build a sessionization pipeline: group by user_id, session_id, and event time, compute session duration, and identify bounce sessions and repeat visitors.
+15. Read all source data and build a master data quality scorecard that reports null rates, duplicate rates, unmatched keys, and stale records. How would you operationalize this in production?
+16. Compare customer source data with orders and identify records with missing or stale customer metadata. Explain how to handle mismatched key formats and country/state normalization.
+17. Optimize a join between a large orders fact table and a small customer dimension table. When would you choose broadcast join and when would you avoid it?
+18. Apply partition pruning and filter pushdown in a PySpark workload reading a large orders dataset by date. Show how you would design the output partitioning for downstream consumption.
+19. Create a late-arriving data scenario in orders.csv: a row arrives for an earlier date after the batch completes. Explain how you would handle this in a dimension or fact table without double counting.
+20. Build a product affinity analysis from orders and products to find which products are frequently bought together. Show the logic and idempotent processing pattern.
+21. Using orders.csv, calculate daily, weekly, and monthly sales trendlines. Explain how to ensure deterministic ordering and handle missing dates in the output.
+22. Create a data model for customer hierarchy using customers.csv and orders.csv, and identify customers with high-value repeat purchases by source_channel and loyalty_tier.
+23. Use events.json to calculate page-wise and country-wise engagement rates. Which events should be considered for engagement, and how would you skip bot traffic or low-quality sessions?
+24. Design a reprocessing-safe ETL job that produces a gold-layer customer sales table. Explain idempotency, staging, validation, and atomic writes.
+25. Build a pipeline to compare current month revenue vs previous month revenue for each segment and country. Show how you would handle gaps in the data and outlier corrections.
+26. In orders.csv, identify customers with order count growth above a threshold over a trailing 30-day window. Explain how to compute rolling windows without causing excessive shuffle.
+27. Create an anomaly detection pipeline for order spikes by product or city. How would you implement an alerting rule based on the rolling average and standard deviation?
+28. Read products.json and orders.csv to compute category margins and identify unprofitable products. Explain how you would treat discontinued or inactive products.
+29. Use a self join or window function to identify customers whose latest order is greater than their previous order by more than 30%. Explain how you would compute this efficiently.
+30. Design a production-ready PySpark ingestion layer for CSV, JSON, and Excel-like sources. Explain schema enforcement, type casting, bad record handling, and output partition layout.
+31. Build a customer health score using orders, customer activity, and churn signals. Define a scoring formula and show how you would materialize this as a daily table.
+32. Create a query to flag suspicious duplicate transaction patterns using orders.csv when the same customer_id and product_id appear multiple times in a short time window.
+33. Implement a fact table refresh design using incremental loads and merge logic, and explain what you would do when a historical record is corrected after a week.
+34. Write a scenario around schema drift in products.json: a new nested field appears or a field type changes. Explain how you would handle it in Spark without breaking pipelines.
+35. Build a time-series forecast input table from orders.csv containing daily revenue, previous 7-day average, and 30-day moving average. How would you prepare the dataset for model consumption?
+36. Estimate the cost of join skew using orders.csv and customers.csv. How would you detect skew, which keys are likely skewed, and which repartitioning pattern is safest?
+37. Design a full job orchestration pattern: read raw data, validate, standardize, enrich, aggregate, and write curated tables with a data quality summary. Discuss the role of checkpoints and caching.
+38. Using events.json, compute the average time between page view and purchase for each user. Explain how to handle users with incomplete journeys and null event timestamps.
+39. Build a customer segmentation model using orders frequency, recency, and monetary value (RFM) with PySpark. Explain the output table and how validation would work.
+40. Show how to compute sales contribution percentage by product, customer segment, and country. Explain when a broadcast join or pre-aggregation is preferable.
+41. Identify product categories that saw declining revenue month-over-month and explain how you would write the alert logic and data quality guardrails.
+42. Create a pipeline that reads raw CSV files, normalizes column names, handles case differences, trims whitespace, and casts columns to the proper types before a warehouse write.
+43. Using orders.csv, calculate repeated purchase rate by customer and by product. What patterns indicate customer loyalty versus one-off transactions?
+44. Write a query to compute the time difference between first purchase and second purchase for each customer. Explain how to handle customers without a second purchase.
+45. Analyze customer acquisition by source_channel. Show how to compute revenue per acquisition (RPA) and conversion of each acquisition source to a paying customer.
+46. Design a product-level retention metric: how many customers purchase the same product again within 30 or 60 days? Explain the SQL/DataFrame logic.
+47. Build a data quality job that scans for malformed dates, missing customer IDs, negative prices, and duplicate orders. Show the output tables and quarantine logic.
+48. Detect and explain the difference between a dropped null row and a imputed null value in a customer master. In production, when would you choose one over the other?
+49. Create a table of first purchase date, last purchase date, order count, and total spend per customer. Then identify high-value but inactive customers.
+50. Write a solution to reconcile raw orders to final warehouse sales: count the number of rows, total revenue, distinct customers, and diffs before and after quality checks.

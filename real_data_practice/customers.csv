@@ -1,0 +1,21 @@
+customer_id,customer_name,signup_date,city,state,country,is_active,segment,source_channel,loyalty_tier
+C001,Alicia Gomez,2021-01-12,New York,NY,USA,True,Retail,Paid Search,Gold
+C002,Rahul Mehta,2020-09-21,Chicago,IL,USA,True,SMB,Organic,Silver
+C003,Priya Singh,2022-04-05,Austin,TX,USA,False,Enterprise,Referral,Platinum
+C004,Jason Lee,2023-02-11,Toronto,ON,Canada,True,Retail,Social,Gold
+C005,Emma Wilson,2021-07-18,London,ENG,UK,True,Enterprise,Partner,Platinum
+C006,Lucas Silva,2022-11-20,Sao Paulo,SP,Brazil,True,SMB,Organic,Bronze
+C007,Olivia Martin,2023-06-01,Berlin,BE,Germany,True,Retail,Paid Search,Silver
+C008,Hassan Ali,2021-03-09,Dubai,DU,UAE,False,Enterprise,Referral,Gold
+C009,Mia Chen,2022-12-15,Singapore,SG,Singapore,True,SMB,Social,Silver
+C010,Nicolas Dubois,2020-12-17,Paris,IDF,France,True,Retail,Organic,Gold
+C011,Sara Rahman,2024-01-03,Lagos,LA,Nigeria,True,Retail,Social,Bronze
+C012,Daniel Kofi,2022-08-22,Accra,GA,Ghana,True,SMB,Referral,Silver
+C013,Anya Petrov,2023-05-07,Moscow,MOW,Russia,False,Enterprise,Partner,Gold
+C014,Haruto Tanaka,2021-11-29,Tokyo,TK,Japan,True,Retail,Organic,Platinum
+C015,Sofia Rossi,2020-06-10,Rome,RM,Italy,True,Enterprise,Paid Search,Gold
+C016,Noah Brown,2023-08-16,Sydney,NSW,Australia,True,SMB,Referral,Silver
+C017,Leila Karim,2021-10-04,Doha,DA,Qatar,True,Retail,Social,Gold
+C018,Mateo Ortiz,2022-03-12,Mexico City,CMX,Mexico,True,Enterprise,Partner,Platinum
+C019,Zara Khan,2023-11-22,Karachi,SD,Pakistan,False,Retail,Organic,Bronze
+C020,Boris Petrenko,2021-09-25,Kyiv,KV,Ukraine,True,SMB,Referral,Silver

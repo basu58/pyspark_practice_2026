@@ -1,0 +1,69 @@
+Senior Data Engineer PySpark Practical Interview Questions
+
+Files in this folder:
+- customers.csv
+- orders.csv
+- products.json
+- events.json
+- sales_data.xlsx
+
+
+1. Read customers.csv and compute the count of active customers by country and segment.
+
+2. Find duplicate customer IDs in the customer master and flag all invalid rows before loading to the warehouse.
+
+3. Join orders.csv to customers.csv and calculate monthly revenue by state for all completed orders.
+
+4. Load orders.csv and filter out cancelled and refunded orders before building a daily sales KPI table.
+
+5. Compute customer lifetime value by summing total_amount for each registered customer and identify top 10 customers.
+
+6. Use event.json to build a daily funnel from view -> add_to_cart -> purchase and calculate conversion rate.
+
+7. Read products.json and flatten nested attributes such as screen, ram, and connectivity into separate columns.
+
+8. Build a product performance dashboard from orders and products to compare revenue, quantity sold, and margin by category.
+
+9. Load sales_data.xlsx, validate the schema, and ensure order_id is unique before writing a clean DataFrame.
+
+10. Identify customers with no orders in the last 90 days from the orders dataset and create a churn flag.
+
+11. Using orders.csv, calculate the average order value by payment method and compare across channels.
+
+12. Detect orders with total_amount mismatch between quantity * unit_price and the stored total_amount column.
+
+13. Load events.json and count the number of unique users per country and device type.
+
+14. Compute the most common event path for each user from events.json and identify the top session flows.
+
+15. Create a 7-day rolling revenue window per customer using a window function on the orders dataset.
+
+16. Find customers whose orders exceeded the 95th percentile of order value and create a premium customer list.
+
+17. Build a daily active user metric from events.json using event_ts and unique user_id aggregation.
+
+18. Create a customer retention cohort by signup month and calculate the 30-day and 90-day repeat purchase rate.
+
+19. Use products.json to calculate category-wise revenue share using join with orders.csv and product pricing metadata.
+
+20. Find out which product has the best conversion from view to purchase in events.json and product catalog data.
+
+21. Read sales_data.xlsx and compare it to orders.csv to detect rows missing from either source.
+
+22. Apply a nullable-safe logic to identify missing or invalid values in the customer master before downstream joins.
+
+23. Build a slow-changing dimension pattern using customer source data and identify records that changed segment or loyalty tier.
+
+24. Create a historical snapshot table from orders.csv with daily granularity and calculate month-over-month revenue growth.
+
+25. Process events.json day over day and calculate the percentage change in purchase events by country.
+
+26. Write a PySpark job to deduplicate orders using order_id and keep the newest valid record based on updated timestamp logic.
+
+27. Using orders.csv and products.json, calculate gross profit by product: total_amount - quantity * unit_cost.
+
+28. Build a sales attribution report by source_channel and show which acquisition channels generate highest revenue.
+
+29. Use the product catalog and sales data to find inactive products that still have revenue or orders after the last active date.
+
+30. Design an end-to-end data quality framework that checks nulls, duplicates, invalid dates, and out-of-range prices across CSV, JSON, and Excel inputs.

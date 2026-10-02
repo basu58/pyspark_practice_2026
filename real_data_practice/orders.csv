@@ -1,0 +1,41 @@
+order_id,order_date,customer_id,product_id,quantity,unit_price,total_amount,payment_method,status,order_channel
+O0001,2024-01-04,C002,P103,2,37,74,UPI,Pending,Mobile
+O0002,2024-01-07,C003,P100,3,44,132,Wallet,Cancelled,Marketplace
+O0003,2024-01-10,C004,P103,4,51,204,Bank Transfer,Refunded,Partner
+O0004,2024-01-13,C005,P100,5,58,290,Card,Completed,Web
+O0005,2024-01-16,C006,P103,1,65,65,UPI,Pending,Mobile
+O0006,2024-01-19,C007,P100,2,72,144,Wallet,Cancelled,Marketplace
+O0007,2024-01-22,C008,P103,3,79,237,Bank Transfer,Refunded,Partner
+O0008,2024-01-25,C009,P100,4,86,344,Card,Completed,Web
+O0009,2024-01-28,C010,P103,5,93,465,UPI,Pending,Mobile
+O0010,2024-01-31,C011,P100,1,100,100,Wallet,Cancelled,Marketplace
+O0011,2024-02-03,C012,P103,2,107,214,Bank Transfer,Refunded,Partner
+O0012,2024-02-06,C013,P100,3,114,342,Card,Completed,Web
+O0013,2024-02-09,C014,P103,4,121,484,UPI,Pending,Mobile
+O0014,2024-02-12,C015,P100,5,128,640,Wallet,Cancelled,Marketplace
+O0015,2024-02-15,C016,P103,1,135,135,Bank Transfer,Refunded,Partner
+O0016,2024-02-18,C017,P100,2,142,284,Card,Completed,Web
+O0017,2024-02-21,C018,P103,3,149,447,UPI,Pending,Mobile
+O0018,2024-02-24,C019,P100,4,156,624,Wallet,Cancelled,Marketplace
+O0019,2024-02-27,C020,P103,5,163,815,Bank Transfer,Refunded,Partner
+O0020,2024-03-01,C001,P100,1,170,170,Card,Completed,Web
+O0021,2024-03-04,C002,P103,2,177,354,UPI,Pending,Mobile
+O0022,2024-03-07,C003,P100,3,184,552,Wallet,Cancelled,Marketplace
+O0023,2024-03-10,C004,P103,4,191,764,Bank Transfer,Refunded,Partner
+O0024,2024-03-13,C005,P100,5,198,990,Card,Completed,Web
+O0025,2024-03-16,C006,P103,1,205,205,UPI,Pending,Mobile
+O0026,2024-03-19,C007,P100,2,212,424,Wallet,Cancelled,Marketplace
+O0027,2024-03-22,C008,P103,3,219,657,Bank Transfer,Refunded,Partner
+O0028,2024-03-25,C009,P100,4,226,904,Card,Completed,Web
+O0029,2024-03-28,C010,P103,5,233,1165,UPI,Pending,Mobile
+O0030,2024-03-31,C011,P100,1,240,240,Wallet,Cancelled,Marketplace
+O0031,2024-04-03,C012,P103,2,247,494,Bank Transfer,Refunded,Partner
+O0032,2024-04-06,C013,P100,3,34,102,Card,Completed,Web
+O0033,2024-04-09,C014,P103,4,41,164,UPI,Pending,Mobile
+O0034,2024-04-12,C015,P100,5,48,240,Wallet,Cancelled,Marketplace
+O0035,2024-04-15,C016,P103,1,55,55,Bank Transfer,Refunded,Partner
+O0036,2024-04-18,C017,P100,2,62,124,Card,Completed,Web
+O0037,2024-04-21,C018,P103,3,69,207,UPI,Pending,Mobile
+O0038,2024-04-24,C019,P100,4,76,304,Wallet,Cancelled,Marketplace
+O0039,2024-04-27,C020,P103,5,83,415,Bank Transfer,Refunded,Partner
+O0040,2024-01-01,C001,P100,1,90,90,Card,Completed,Web

@@ -1,0 +1,1308 @@
+
+========================================================================================================================
+BEGINNER LEVEL
+========================================================================================================================
+
+--- Beginner - Fundamentals ---
+Beginner Fundamentals 1. What is PySpark and how is it different from Apache Spark?
+Beginner Fundamentals 2. What is the role of SparkContext in a PySpark application?
+Beginner Fundamentals 3. What is SparkSession and why is it important?
+Beginner Fundamentals 4. Explain the purpose of a Spark application, job, stage, and task.
+Beginner Fundamentals 5. What is a cluster manager in Spark?
+Beginner Fundamentals 6. What are worker nodes and executors?
+Beginner Fundamentals 7. How does PySpark execute code on a cluster?
+Beginner Fundamentals 8. What is a driver program in Spark?
+Beginner Fundamentals 9. What is a partition in Spark?
+Beginner Fundamentals 10. Why is data partitioning important?
+Beginner Fundamentals 11. What is the difference between a transformation and an action?
+Beginner Fundamentals 12. What is lazy evaluation in Spark?
+Beginner Fundamentals 13. Why is lazy evaluation useful for optimization?
+Beginner Fundamentals 14. What is a Resilient Distributed Dataset?
+Beginner Fundamentals 15. Why is RDD still relevant in PySpark?
+Beginner Fundamentals 16. What is a DataFrame in PySpark?
+Beginner Fundamentals 17. How is a DataFrame different from an RDD?
+Beginner Fundamentals 18. What is a Dataset in Spark?
+Beginner Fundamentals 19. What is schema inference in Spark?
+Beginner Fundamentals 20. What is the difference between narrow and wide transformations?
+Beginner Fundamentals 21. What happens during a shuffle in Spark?
+Beginner Fundamentals 22. How does Spark manage memory?
+Beginner Fundamentals 23. What is caching in Spark?
+Beginner Fundamentals 24. How is persistence different from caching?
+Beginner Fundamentals 25. What is broadcast in PySpark?
+Beginner Fundamentals 26. What is an accumulator in PySpark?
+Beginner Fundamentals 27. What is serialization in distributed data processing?
+Beginner Fundamentals 28. What is the difference between local mode and cluster mode?
+Beginner Fundamentals 29. What is cluster mode in PySpark?
+Beginner Fundamentals 30. What is a local variable in a Spark transformation?
+Beginner Fundamentals 31. What is a UDF and when should you avoid it?
+Beginner Fundamentals 32. How do you create a SparkSession?
+Beginner Fundamentals 33. How do you read a text file into a DataFrame?
+Beginner Fundamentals 34. How do you read a CSV file in PySpark?
+Beginner Fundamentals 35. How do you create an empty DataFrame?
+Beginner Fundamentals 36. How do you display a DataFrame?
+Beginner Fundamentals 37. How do you inspect the schema of a DataFrame?
+Beginner Fundamentals 38. What is show() used for in PySpark?
+Beginner Fundamentals 39. How do you count rows in a DataFrame?
+Beginner Fundamentals 40. How do you select a single column?
+Beginner Fundamentals 41. How do you select multiple columns?
+Beginner Fundamentals 42. What does distinct() do?
+Beginner Fundamentals 43. What does dropDuplicates() do?
+Beginner Fundamentals 44. What does filter() do?
+Beginner Fundamentals 45. What does where() do?
+Beginner Fundamentals 46. What does groupBy() do?
+Beginner Fundamentals 47. What does orderBy() do?
+Beginner Fundamentals 48. What does limit() do?
+Beginner Fundamentals 49. What does join() do?
+Beginner Fundamentals 50. What is a left join in Spark?
+Beginner Fundamentals 51. What is an inner join in Spark?
+Beginner Fundamentals 52. How do you rename a column?
+Beginner Fundamentals 53. How do you cast a column to a different type?
+Beginner Fundamentals 54. What are null values in Spark?
+Beginner Fundamentals 55. How do you handle null values in DataFrames?
+Beginner Fundamentals 56. What is the importance of column names?
+Beginner Fundamentals 57. How do you create a new column from existing ones?
+Beginner Fundamentals 58. What is a temporary view?
+Beginner Fundamentals 59. How do you register a DataFrame as a table?
+Beginner Fundamentals 60. What is the purpose of SQL queries on DataFrames?
+Beginner Fundamentals 61. What is the difference between DataFrame and SQL table?
+Beginner Fundamentals 62. What is a row object in PySpark?
+Beginner Fundamentals 63. How do you print the schema of a DataFrame?
+Beginner Fundamentals 64. What is the purpose of explain()?
+Beginner Fundamentals 65. What is a DataFrameReader?
+Beginner Fundamentals 66. What is a DataFrameWriter?
+Beginner Fundamentals 67. What is writing data to Parquet in PySpark?
+Beginner Fundamentals 68. What is writing data to JSON in PySpark?
+Beginner Fundamentals 69. What is the difference between read and load in Spark?
+
+--- Beginner - Theory ---
+Beginner Theory 1. What is lazy evaluation in the Spark execution model?
+Beginner Theory 2. How does Spark optimize transformations before execution?
+Beginner Theory 3. What is the role of the Catalyst optimizer?
+Beginner Theory 4. How does Spark build a logical plan?
+Beginner Theory 5. What is a physical plan in Spark SQL?
+Beginner Theory 6. Explain the concept of lineage in RDDs.
+Beginner Theory 7. Why does Spark use lineage for fault tolerance?
+Beginner Theory 8. What is task scheduling in Spark?
+Beginner Theory 9. What is the purpose of DAG scheduling?
+Beginner Theory 10. What is a DAG in Spark?
+Beginner Theory 11. How does a DAG help execution?
+Beginner Theory 12. What is the difference between an action and a transformation?
+Beginner Theory 13. What is a stage boundary in Spark?
+Beginner Theory 14. What creates a stage boundary?
+Beginner Theory 15. What is a shuffle and how does it affect performance?
+Beginner Theory 16. Why are wide transformations expensive?
+Beginner Theory 17. What is data locality in Spark?
+Beginner Theory 18. How does Spark choose execution locations?
+Beginner Theory 19. What is the difference between executor memory and driver memory?
+Beginner Theory 20. What is memory spill in Spark?
+Beginner Theory 21. What is GC overhead in Spark jobs?
+Beginner Theory 22. What is the purpose of the driver process?
+Beginner Theory 23. What is the purpose of executors?
+Beginner Theory 24. What is a cluster manager in distributed computing?
+Beginner Theory 25. How does Spark work with YARN?
+Beginner Theory 26. How does Spark work with Kubernetes?
+Beginner Theory 27. How does Spark work with standalone mode?
+Beginner Theory 28. Why is data skew a common challenge?
+Beginner Theory 29. What is the difference between repartition and coalesce?
+Beginner Theory 30. How do you reduce data skew in PySpark?
+Beginner Theory 31. What is a wide transformation and why is it expensive?
+Beginner Theory 32. What is a narrow transformation and why is it efficient?
+Beginner Theory 33. What is checkpointing in Spark?
+Beginner Theory 34. When should you use checkpointing?
+Beginner Theory 35. What is cache() in Spark?
+Beginner Theory 36. What is persist() in Spark?
+Beginner Theory 37. How do transformations become tasks?
+Beginner Theory 38. What is query planning in Spark SQL?
+Beginner Theory 39. What is the execution engine in Spark SQL?
+Beginner Theory 40. How does Spark handle schema evolution?
+Beginner Theory 41. What is adaptive query execution?
+Beginner Theory 42. What is the purpose of predicate pushdown?
+Beginner Theory 43. What is vectorized execution?
+Beginner Theory 44. How does Spark optimize joins?
+Beginner Theory 45. What is a broadcast join?
+Beginner Theory 46. What is sort-merge join?
+Beginner Theory 47. What is a map-side join?
+Beginner Theory 48. How is partition pruning useful?
+Beginner Theory 49. What does file format choice affect in Spark?
+Beginner Theory 50. Why is Parquet preferred for analytics workloads?
+Beginner Theory 51. What is a data lakehouse pattern in Spark?
+Beginner Theory 52. What is the purpose of a metastore?
+Beginner Theory 53. What is the difference between logical and physical plans?
+Beginner Theory 54. How does Spark handle fault tolerance?
+Beginner Theory 55. Why is lineage important for recovery?
+Beginner Theory 56. What are task retries in Spark?
+Beginner Theory 57. Why do jobs fail on executor loss?
+Beginner Theory 58. What is a shuffle file?
+Beginner Theory 59. What is reduceByKey used for?
+Beginner Theory 60. What is groupByKey and why can it be expensive?
+Beginner Theory 61. What is the difference between map and flatMap?
+Beginner Theory 62. How does Spark create tasks from partitions?
+Beginner Theory 63. What is dynamic allocation?
+Beginner Theory 64. Why is dynamic allocation useful?
+Beginner Theory 65. How does Spark distribute work at the partition level?
+Beginner Theory 66. What is the role of the DAG scheduler?
+Beginner Theory 67. How does Spark estimate the cost of a query?
+Beginner Theory 68. How do statistics help Spark optimize queries?
+
+--- Beginner - SQL ---
+Beginner SQL 1. How do you create a temporary view from a DataFrame?
+Beginner SQL 2. How do you run a SQL query against a DataFrame?
+Beginner SQL 3. What is the syntax for selecting all columns from a table?
+Beginner SQL 4. How do you filter rows with a WHERE clause in Spark SQL?
+Beginner SQL 5. How do you group data using GROUP BY?
+Beginner SQL 6. How do you count rows with SQL?
+Beginner SQL 7. How do you sort rows using ORDER BY?
+Beginner SQL 8. What is the purpose of LIMIT in SQL?
+Beginner SQL 9. How do you join two tables in Spark SQL?
+Beginner SQL 10. What is an inner join in SQL?
+Beginner SQL 11. What is a left join in SQL?
+Beginner SQL 12. What is a right join in SQL?
+Beginner SQL 13. What is a full outer join?
+Beginner SQL 14. How do you handle duplicate values in SQL?
+Beginner SQL 15. How do you remove duplicate rows with DISTINCT?
+Beginner SQL 16. How do you rename a column in SQL?
+Beginner SQL 17. How do you alias a column in SQL?
+Beginner SQL 18. How do you check for null values in SQL?
+Beginner SQL 19. How do you replace null values with SQL?
+Beginner SQL 20. How do you use CASE WHEN in Spark SQL?
+Beginner SQL 21. How do you calculate aggregates in SQL?
+Beginner SQL 22. How do you use SUM, AVG, MIN, and MAX?
+Beginner SQL 23. How do you write a subquery in Spark SQL?
+Beginner SQL 24. How do you use EXISTS in SQL?
+Beginner SQL 25. How do you use IN with a list of values?
+Beginner SQL 26. How do you combine two queries using UNION?
+Beginner SQL 27. How do you combine queries using UNION ALL?
+Beginner SQL 28. How do you write a self-join in Spark SQL?
+Beginner SQL 29. How do you use window functions in Spark SQL?
+Beginner SQL 30. What is a partitioned table in Spark SQL?
+Beginner SQL 31. How do you create a table from a DataFrame?
+Beginner SQL 32. How do you read a Parquet table with Spark SQL?
+Beginner SQL 33. How do you save results to a table?
+Beginner SQL 34. How do you query a temporary view?
+Beginner SQL 35. How do you use HAVING in SQL?
+Beginner SQL 36. What is the difference between WHERE and HAVING?
+Beginner SQL 37. How do you filter on aggregated results?
+Beginner SQL 38. How do you use LIKE for pattern matching?
+Beginner SQL 39. How do you use BETWEEN in SQL?
+Beginner SQL 40. How do you use NOT IN?
+Beginner SQL 41. How do you use COALESCE in Spark SQL?
+Beginner SQL 42. How do you use CAST in SQL?
+Beginner SQL 43. How do you convert string to date in SQL?
+Beginner SQL 44. How do you format date values?
+Beginner SQL 45. How do you handle nested fields in SQL?
+Beginner SQL 46. How do you explode an array in Spark SQL?
+Beginner SQL 47. How do you use array functions in Spark SQL?
+Beginner SQL 48. How do you use map functions in SQL?
+Beginner SQL 49. How do you use struct fields in Spark SQL?
+Beginner SQL 50. How do you write a correlated subquery?
+Beginner SQL 51. How do you use ROW_NUMBER over a partition?
+Beginner SQL 52. What is the purpose of RANK and DENSE_RANK?
+Beginner SQL 53. How do you use NTILE in Spark SQL?
+Beginner SQL 54. How do you use lead and lag window functions?
+Beginner SQL 55. How do you aggregate with rollup?
+Beginner SQL 56. How do you use cube in SQL?
+Beginner SQL 57. How do you create a view in Spark SQL?
+Beginner SQL 58. How do you drop a table in Spark SQL?
+Beginner SQL 59. How do you describe a table in Spark SQL?
+Beginner SQL 60. How do you show the tables in a catalog?
+Beginner SQL 61. How do you join on multiple conditions?
+Beginner SQL 62. How do you use cross join in SQL?
+Beginner SQL 63. How do you use semi join and anti join?
+Beginner SQL 64. How do you use aggregate functions with conditional logic?
+Beginner SQL 65. How do you check schema of a table?
+Beginner SQL 66. How do you query JSON data with Spark SQL?
+Beginner SQL 67. How do you query CSV data with Spark SQL?
+Beginner SQL 68. How do you use SQL functions for date arithmetic?
+
+--- Beginner - RDD ---
+Beginner RDD 1. What is an RDD in PySpark?
+Beginner RDD 2. How do you create an RDD from a Python list?
+Beginner RDD 3. How do you create an RDD from a file?
+Beginner RDD 4. What is the difference between map and flatMap on an RDD?
+Beginner RDD 5. How do you filter an RDD?
+Beginner RDD 6. How do you transform an RDD using map()?
+Beginner RDD 7. What does reduce() do on an RDD?
+Beginner RDD 8. What does collect() do on an RDD?
+Beginner RDD 9. What does take() do on an RDD?
+Beginner RDD 10. What does first() do on an RDD?
+Beginner RDD 11. How do you count elements in an RDD?
+Beginner RDD 12. What is distinct() on an RDD?
+Beginner RDD 13. What is union() on an RDD?
+Beginner RDD 14. What is intersection() on an RDD?
+Beginner RDD 15. What is subtract() on an RDD?
+Beginner RDD 16. How do you sort an RDD?
+Beginner RDD 17. What is groupByKey() on an RDD?
+Beginner RDD 18. What is reduceByKey() on an RDD?
+Beginner RDD 19. What is aggregateByKey() on an RDD?
+Beginner RDD 20. What is join() on key-value RDDs?
+Beginner RDD 21. What is cogroup() on RDDs?
+Beginner RDD 22. What is zip() on two RDDs?
+Beginner RDD 23. What is cartesian() on an RDD?
+Beginner RDD 24. What is sample() on an RDD?
+Beginner RDD 25. How do you repartition an RDD?
+Beginner RDD 26. How do you coalesce an RDD?
+Beginner RDD 27. What is foreach() on an RDD?
+Beginner RDD 28. What is foreachPartition() on an RDD?
+Beginner RDD 29. What is persist() on an RDD?
+Beginner RDD 30. What is cache() on an RDD?
+Beginner RDD 31. What is the purpose of checkpointing an RDD?
+Beginner RDD 32. How do you check the number of partitions in an RDD?
+Beginner RDD 33. How do you set the number of partitions when creating an RDD?
+Beginner RDD 34. What is glom() on an RDD?
+Beginner RDD 35. What is mapPartitions() on an RDD?
+Beginner RDD 36. Why would you use mapPartitions()?
+Beginner RDD 37. What is flatMapValues() for key-value pairs?
+Beginner RDD 38. What is keys() on an RDD?
+Beginner RDD 39. What is values() on an RDD?
+Beginner RDD 40. How do you combine key-value pairs with combineByKey()?
+Beginner RDD 41. What is fold() on an RDD?
+Beginner RDD 42. What is foldByKey() on an RDD?
+Beginner RDD 43. What is countByKey() on an RDD?
+Beginner RDD 44. What is countApprox() on an RDD?
+Beginner RDD 45. How do you get the top values from an RDD?
+Beginner RDD 46. What is sortByKey() on an RDD?
+Beginner RDD 47. How do you filter a key-value RDD by key?
+Beginner RDD 48. What is the difference between map and foreach?
+Beginner RDD 49. What is the difference between count and collect?
+Beginner RDD 50. What is the difference between repartition and coalesce?
+Beginner RDD 51. How do you pipe data through an external command in Spark?
+Beginner RDD 52. What is wholeTextFiles() in Spark?
+Beginner RDD 53. How do you read binary files using RDDs?
+Beginner RDD 54. What is takeSample() on an RDD?
+Beginner RDD 55. What is treeAggregate() on an RDD?
+Beginner RDD 56. What is aggregate() on an RDD?
+Beginner RDD 57. How do you compute a sum of all numbers in an RDD?
+Beginner RDD 58. How do you compute the maximum value in an RDD?
+Beginner RDD 59. How do you compute the minimum value in an RDD?
+Beginner RDD 60. How do you avoid memory issues when using large RDDs?
+Beginner RDD 61. How do you debug an RDD transformation issue?
+Beginner RDD 62. How do you inspect the contents of a partition in an RDD?
+Beginner RDD 63. How do you serialize custom objects in an RDD?
+Beginner RDD 64. What is RDD lineage and why is it important?
+Beginner RDD 65. How do you recover from a failed task using RDD lineage?
+Beginner RDD 66. What happens if an RDD is recomputed after a failure?
+Beginner RDD 67. Why do RDDs remain useful for low-level operations?
+
+--- Beginner - DataFrame ---
+Beginner DataFrame 1. What is a DataFrame in PySpark?
+Beginner DataFrame 2. How do you create a DataFrame from a list of dictionaries?
+Beginner DataFrame 3. What is the purpose of a schema in a DataFrame?
+Beginner DataFrame 4. How do you define a schema explicitly?
+Beginner DataFrame 5. What is select() in DataFrame operations?
+Beginner DataFrame 6. What is withColumn() used for?
+Beginner DataFrame 7. What is drop() in DataFrame APIs?
+Beginner DataFrame 8. What is alias() in DataFrame APIs?
+Beginner DataFrame 9. How do you rename a column in a DataFrame?
+Beginner DataFrame 10. What does filter() do on a DataFrame?
+Beginner DataFrame 11. What is where() in DataFrame APIs?
+Beginner DataFrame 12. How do you sort a DataFrame by a column?
+Beginner DataFrame 13. How do you group and aggregate data in a DataFrame?
+Beginner DataFrame 14. What is count() on a DataFrame?
+Beginner DataFrame 15. What is distinct() on a DataFrame?
+Beginner DataFrame 16. How do you drop duplicates from a DataFrame?
+Beginner DataFrame 17. What is union() in DataFrame APIs?
+Beginner DataFrame 18. What is unionByName() in DataFrame APIs?
+Beginner DataFrame 19. What is join() in DataFrame APIs?
+Beginner DataFrame 20. How do you do an inner join on DataFrames?
+Beginner DataFrame 21. What is a left join in DataFrame operations?
+Beginner DataFrame 22. What is a right join in DataFrame operations?
+Beginner DataFrame 23. What is a full join in DataFrame operations?
+Beginner DataFrame 24. How do you add a new column based on other columns?
+Beginner DataFrame 25. How do you split a column into multiple columns?
+Beginner DataFrame 26. How do you concatenate multiple columns into one?
+Beginner DataFrame 27. How do you handle missing values in a DataFrame?
+Beginner DataFrame 28. How do you fill null values in a DataFrame?
+Beginner DataFrame 29. What is na.drop() in DataFrame operations?
+Beginner DataFrame 30. How do you convert a DataFrame to an RDD?
+Beginner DataFrame 31. How do you convert an RDD to a DataFrame?
+Beginner DataFrame 32. What is explode() in DataFrame APIs?
+Beginner DataFrame 33. What is collect() on a DataFrame?
+Beginner DataFrame 34. What is take() on a DataFrame?
+Beginner DataFrame 35. What is show() on a DataFrame?
+Beginner DataFrame 36. What is printSchema() used for?
+Beginner DataFrame 37. How do you inspect a DataFrame row?
+Beginner DataFrame 38. What is cache() on a DataFrame?
+Beginner DataFrame 39. What is persist() on a DataFrame?
+Beginner DataFrame 40. How do you create a temporary view from a DataFrame?
+Beginner DataFrame 41. How do you query a DataFrame using SQL?
+Beginner DataFrame 42. How do you create a DataFrame from a CSV file?
+Beginner DataFrame 43. How do you create a DataFrame from a JSON file?
+Beginner DataFrame 44. How do you create a DataFrame from a Parquet file?
+Beginner DataFrame 45. What is parquet and why is it useful?
+Beginner DataFrame 46. What is the difference between reading a CSV and a Parquet file?
+Beginner DataFrame 47. How do you repartition a DataFrame?
+Beginner DataFrame 48. How do you coalesce a DataFrame?
+Beginner DataFrame 49. What is broadcast join in DataFrame APIs?
+Beginner DataFrame 50. What is the purpose of explain() on a DataFrame?
+Beginner DataFrame 51. What is a DataFrameReader?
+Beginner DataFrame 52. What is a DataFrameWriter?
+Beginner DataFrame 53. How do you write a DataFrame to Parquet?
+Beginner DataFrame 54. How do you write a DataFrame to JSON?
+Beginner DataFrame 55. What is a partitioned DataFrame?
+Beginner DataFrame 56. How do you use orderBy() on a DataFrame?
+Beginner DataFrame 57. How do you use sort() on a DataFrame?
+Beginner DataFrame 58. What is the difference between sort() and orderBy()?
+Beginner DataFrame 59. How do you use sample() on a DataFrame?
+Beginner DataFrame 60. How do you use randomSplit() on a DataFrame?
+Beginner DataFrame 61. What does summary() do on a DataFrame?
+Beginner DataFrame 62. How do you evaluate the number of rows in a DataFrame?
+Beginner DataFrame 63. What is a column expression in Spark?
+Beginner DataFrame 64. How do you use functions like lit(), col(), and expr()?
+Beginner DataFrame 65. What is the purpose of the functions module?
+Beginner DataFrame 66. How do you use when() and otherwise() conditions?
+Beginner DataFrame 67. How do you aggregate conditional values?
+Beginner DataFrame 68. How do you handle type conversion in DataFrames?
+Beginner DataFrame 69. What is schema validation in a DataFrame?
+Beginner DataFrame 70. How do you identify the data types of columns?
+Beginner DataFrame 71. What is a nullable column?
+Beginner DataFrame 72. How do you create a nested StructType in Spark?
+Beginner DataFrame 73. What is an ArrayType in a DataFrame?
+Beginner DataFrame 74. How do you flatten nested arrays?
+Beginner DataFrame 75. What is a MapType in Spark?
+
+--- Beginner - Scenario-Based ---
+Beginner Scenario-Based 1. Scenario: A daily sales file has duplicate records and null values. How would you clean and validate it in PySpark?
+Beginner Scenario-Based 2. Scenario: A batch job reads millions of rows and takes too long. How would you analyze the bottleneck using Spark concepts?
+Beginner Scenario-Based 3. Scenario: You need to join a 10 GB fact table with a 2 MB dimension table. Which join strategy would you choose and why?
+Beginner Scenario-Based 4. Scenario: A DataFrame is performing slowly because of data skew. How would you diagnose and fix the issue?
+Beginner Scenario-Based 5. Scenario: A pipeline reads a CSV file with malformed rows. How would you handle bad records in PySpark?
+Beginner Scenario-Based 6. Scenario: You need to aggregate transaction data by day and region. How would you write the DataFrame logic?
+Beginner Scenario-Based 7. Scenario: An RDD contains nested JSON strings. How would you transform them into a structured DataFrame?
+Beginner Scenario-Based 8. Scenario: A job has to process a very large file and should avoid recomputing expensive steps. How would you optimize it?
+Beginner Scenario-Based 9. Scenario: A DataFrame has a column with inconsistent date formats. How would you standardize it?
+Beginner Scenario-Based 10. Scenario: You need to analyze user events for the last 30 days. How would you implement the filter and aggregation?
+Beginner Scenario-Based 11. Scenario: A batch process repeatedly reads the same dataset. How would caching or persistence help?
+Beginner Scenario-Based 12. Scenario: You need to compute the total sales per product category and output a table. How would you write the SQL logic?
+Beginner Scenario-Based 13. Scenario: A DataFrame has duplicate rows generated by a flawed join. How would you detect and remove them?
+Beginner Scenario-Based 14. Scenario: Your PySpark job crashes due to memory pressure. What areas would you inspect first?
+Beginner Scenario-Based 15. Scenario: A dataset is too large to fit in memory on a single worker. How does Spark handle it?
+Beginner Scenario-Based 16. Scenario: You need to combine streaming-like batch data from multiple sources. What is the safest approach in Spark SQL?
+Beginner Scenario-Based 17. Scenario: A dataset contains hundreds of columns. How would you select only necessary fields efficiently?
+Beginner Scenario-Based 18. Scenario: A team wants to use SQL queries on a DataFrame. How would you register a temporary view and run the query?
+Beginner Scenario-Based 19. Scenario: A job is reading a Parquet dataset with mismatched schemas. How would you handle the issue?
+Beginner Scenario-Based 20. Scenario: A product table has repeating customer IDs. How would you compute the count of customers per region?
+Beginner Scenario-Based 21. Scenario: You need to count the number of rows after filtering on a column. How would you express it correctly?
+Beginner Scenario-Based 22. Scenario: A table contains nulls in critical columns. How would you decide whether to drop, fill, or flag them?
+Beginner Scenario-Based 23. Scenario: A DataFrame has trailing spaces in names. How would you standardize the strings before joining?
+Beginner Scenario-Based 24. Scenario: You need to analyze a large text log file. How would you parse it into structured DataFrames?
+Beginner Scenario-Based 25. Scenario: You need to write the result from a DataFrame into a partitioned output. How would you do it?
+Beginner Scenario-Based 26. Scenario: A transformation result is not showing as expected. How would you debug the logic using explain()?
+Beginner Scenario-Based 27. Scenario: A query uses a filter that looks simple but is slow. How would Spark SQL optimize it?
+Beginner Scenario-Based 28. Scenario: A job repeatedly calls the same expensive transformation. How would you avoid redundant work?
+Beginner Scenario-Based 29. Scenario: A DataFrame has nested JSON arrays. How would you explode and summarize them?
+Beginner Scenario-Based 30. Scenario: You need to compare two data sources and find mismatched rows. Which join or set operation would you use?
+Beginner Scenario-Based 31. Scenario: A report needs the top 10 customers by revenue. How would you implement this with Spark SQL?
+Beginner Scenario-Based 32. Scenario: You need to detect daily duplicate records in a sales dataset. How would you write the query?
+Beginner Scenario-Based 33. Scenario: A text-heavy dataset contains inconsistent capitalization. How would you normalize it before grouping?
+Beginner Scenario-Based 34. Scenario: A CSV input includes extra commas inside quoted values. How would you read it without corrupting the data?
+Beginner Scenario-Based 35. Scenario: You need to convert a large list of Python objects into a DataFrame. How would you handle it efficiently?
+Beginner Scenario-Based 36. Scenario: The job output is missing rows after a join. What would you check first?
+Beginner Scenario-Based 37. Scenario: A team uses DataFrame APIs for transformations, but a SQL developer wants to query the same data. How would you expose it?
+Beginner Scenario-Based 38. Scenario: You need to add a derived age column from DOB. How would you compute it in Spark?
+Beginner Scenario-Based 39. Scenario: A DataFrame has a column containing both numbers and strings. How would you sanitize it?
+Beginner Scenario-Based 40. Scenario: You need to know the number of records per partition. How would you infer that in PySpark?
+Beginner Scenario-Based 41. Scenario: A cluster job fails on one executor, but the dataset is still recoverable. How does Spark handle it?
+Beginner Scenario-Based 42. Scenario: A table is huge and the user asks for the latest record per key. How would you design the query?
+Beginner Scenario-Based 43. Scenario: You need to compute total revenue after discounts across categories. How would you structure the transformation?
+Beginner Scenario-Based 44. Scenario: A DataFrame includes repeated keys and you want to keep only the latest timestamp per key. How would you solve it?
+Beginner Scenario-Based 45. Scenario: You need to read a file that is partitioned by date. How would you scan only a subset of partitions?
+Beginner Scenario-Based 46. Scenario: A dataset has missing region codes. How would you fill them consistently without overfitting?
+Beginner Scenario-Based 47. Scenario: A SQL query is running slowly because of a cartesian product. What would you check?
+Beginner Scenario-Based 48. Scenario: You have two DataFrames that should match but do not because of type mismatch. How would you debug it?
+Beginner Scenario-Based 49. Scenario: You need to summarize orders by day and customer. Which functions would you use in DataFrame API?
+Beginner Scenario-Based 50. Scenario: A team wants to know which records are not present in a reference table. What join pattern would you use?
+Beginner Scenario-Based 51. Scenario: You need to store the output in a partitioned directory layout. How would you write it in PySpark?
+Beginner Scenario-Based 52. Scenario: A PySpark script works locally but is slow in cluster mode. What factors may explain the difference?
+Beginner Scenario-Based 53. Scenario: A large DataFrame is repeatedly filtered by the same condition. How can you reduce repeated work?
+Beginner Scenario-Based 54. Scenario: You need to compute counts only for rows that match multiple conditions. How would you write the logic?
+Beginner Scenario-Based 55. Scenario: A DataFrame contains arrays of products. How would you flatten and aggregate them?
+Beginner Scenario-Based 56. Scenario: A joined DataFrame results in duplicate columns after merging. How would you resolve it?
+Beginner Scenario-Based 57. Scenario: You need to load a huge dataset and then select only a few columns. How does Spark manage that efficiently?
+Beginner Scenario-Based 58. Scenario: You need to maintain a row count and an aggregate sum in one pass. How would you implement it?
+Beginner Scenario-Based 59. Scenario: A job generates too many shuffle partitions. How would you tune it?
+Beginner Scenario-Based 60. Scenario: You need to detect missing values across many columns. How would you implement the check?
+Beginner Scenario-Based 61. Scenario: A DataFrame has a large number of partitions and you want fewer, larger partitions. What would you do?
+Beginner Scenario-Based 62. Scenario: A file has a header row and some malformed rows. How would you skip the header and handle bad records?
+Beginner Scenario-Based 63. Scenario: You need to compare current and previous day totals. How would you express it in SQL or DataFrame operations?
+Beginner Scenario-Based 64. Scenario: A DataFrame contains user IDs and session timestamps. How would you find the last session per user?
+Beginner Scenario-Based 65. Scenario: You need to compute a median-like summary for a large dataset. What Spark techniques would you use?
+Beginner Scenario-Based 66. Scenario: A file is stored in JSON with nested records. How would you flatten it to a relational view?
+Beginner Scenario-Based 67. Scenario: You need to write custom logic for string normalization in Spark. What approach would you choose?
+Beginner Scenario-Based 68. Scenario: A table query is producing incorrect rows because of a null-safe join. How would you fix the logic?
+Beginner Scenario-Based 69. Scenario: You need to process 100 million rows with simple transformations. How would you maximize throughput?
+Beginner Scenario-Based 70. Scenario: A team wants to avoid repeated schema definitions. How would you use a DataFrame schema consistently?
+
+========================================================================================================================
+INTERMEDIATE LEVEL
+========================================================================================================================
+
+--- Intermediate - Fundamentals ---
+Intermediate Fundamentals 1. Explain how Spark organizes work across the driver, executors, and cluster manager.
+Intermediate Fundamentals 2. What is the lifecycle of a Spark job from submission to completion?
+Intermediate Fundamentals 3. How do transformations get translated into tasks?
+Intermediate Fundamentals 4. What is the difference between application, job, stage, and task in Spark?
+Intermediate Fundamentals 5. How does Spark use partitions to parallelize work across executors?
+Intermediate Fundamentals 6. What is a dependency graph and how does it relate to Spark execution?
+Intermediate Fundamentals 7. How do wide and narrow dependencies affect scheduling?
+Intermediate Fundamentals 8. Why does Spark prefer immutable distributed data structures?
+Intermediate Fundamentals 9. What is the role of serialization in performance tuning?
+Intermediate Fundamentals 10. How does Spark compute execution plans for DataFrames?
+Intermediate Fundamentals 11. What is the role of DAG in Spark optimization?
+Intermediate Fundamentals 12. Describe how Spark handles data locality for efficient computation.
+Intermediate Fundamentals 13. What is the purpose of a partitioner in key-value operations?
+Intermediate Fundamentals 14. How do shuffle partitions influence performance?
+Intermediate Fundamentals 15. What happens when a job has too many small partitions?
+Intermediate Fundamentals 16. How do you decide the optimal number of partitions?
+Intermediate Fundamentals 17. What is the relationship between partition count and executor cores?
+Intermediate Fundamentals 18. What is memory overhead and how does it affect Spark jobs?
+Intermediate Fundamentals 19. What is the difference between cached data and recomputed data?
+Intermediate Fundamentals 20. How does Spark decide whether to spill to disk?
+Intermediate Fundamentals 21. What are the trade-offs of persisting intermediate DataFrames?
+Intermediate Fundamentals 22. Explain the effect of file format on read and write performance.
+Intermediate Fundamentals 23. Why is Parquet commonly used in PySpark analytics pipelines?
+Intermediate Fundamentals 24. What is columnar storage and how does it help queries?
+Intermediate Fundamentals 25. How does Spark process nested data types?
+Intermediate Fundamentals 26. Why is schema inference sometimes risky?
+Intermediate Fundamentals 27. What is the cost of using Python UDFs in Spark SQL?
+Intermediate Fundamentals 28. How do you reason about computational complexity in distributed processing?
+Intermediate Fundamentals 29. What does a shuffle boundary mean in Spark execution?
+Intermediate Fundamentals 30. How does Spark minimize data movement during joins?
+Intermediate Fundamentals 31. What affects the size of a Spark task?
+Intermediate Fundamentals 32. Why is data skew a performance problem?
+Intermediate Fundamentals 33. How do you detect skew in a Spark job?
+Intermediate Fundamentals 34. What is the significance of executor memory overhead?
+Intermediate Fundamentals 35. What is the purpose of spill and how does it impact latency?
+Intermediate Fundamentals 36. What is dynamic allocation and when is it useful?
+Intermediate Fundamentals 37. How does adaptive query execution change the execution plan?
+Intermediate Fundamentals 38. What are predicate pushdowns and why do they matter?
+Intermediate Fundamentals 39. How do stats-based optimizations work in Spark SQL?
+Intermediate Fundamentals 40. What is a broadcast variable and how does it reduce network transfer?
+Intermediate Fundamentals 41. What is the difference between broadcast and join optimization?
+Intermediate Fundamentals 42. How does Spark leverage local file system cache for repeated reads?
+Intermediate Fundamentals 43. What is the purpose of checkpointing for iterative workloads?
+Intermediate Fundamentals 44. How do lineage and recomputation interact during failure recovery?
+Intermediate Fundamentals 45. What happens when a transformation references a non-serializable object?
+Intermediate Fundamentals 46. How does Spark interpret Python functions in UDFs?
+Intermediate Fundamentals 47. Why are DataFrames usually preferred over RDDs for SQL-like transformations?
+Intermediate Fundamentals 48. How do DataFrames translate to Catalyst plans?
+Intermediate Fundamentals 49. Explain the role of the storage layer in Spark execution.
+Intermediate Fundamentals 50. What is the difference between physical memory and virtual memory in Spark?
+Intermediate Fundamentals 51. How do partitions map to tasks for a given transformation?
+Intermediate Fundamentals 52. What is the effect of a large number of small files?
+Intermediate Fundamentals 53. How does Spark read compressed data files?
+Intermediate Fundamentals 54. When would you choose to repartition a DataFrame?
+Intermediate Fundamentals 55. When would you choose to coalesce a DataFrame?
+Intermediate Fundamentals 56. What is a shuffle and why does it impact performance?
+Intermediate Fundamentals 57. How does PySpark handle worker-node failures?
+Intermediate Fundamentals 58. What is task retry logic in Spark?
+Intermediate Fundamentals 59. What is speculative execution in Spark?
+Intermediate Fundamentals 60. Why is data locality important for cluster efficiency?
+Intermediate Fundamentals 61. How do you handle skewed keys in distributed aggregations?
+Intermediate Fundamentals 62. How do executors and partitions interact in Spark?
+Intermediate Fundamentals 63. Why does Spark use a DAG scheduler instead of a simple loop?
+Intermediate Fundamentals 64. How do you reason about the cost of wide transformations?
+Intermediate Fundamentals 65. What is the difference between memory-only and disk-backed storage?
+Intermediate Fundamentals 66. How do you avoid excessive recomputation in iterative pipelines?
+Intermediate Fundamentals 67. What is the role of the Spark UI in diagnosing job behavior?
+Intermediate Fundamentals 68. How do you read a Spark job plan in the UI?
+Intermediate Fundamentals 69. What metrics help you evaluate a Spark job?
+
+--- Intermediate - Theory ---
+Intermediate Theory 1. How does Spark SQL separate logical and physical planning?
+Intermediate Theory 2. What is the purpose of query optimization in Spark SQL?
+Intermediate Theory 3. How does the Catalyst optimizer rewrite queries?
+Intermediate Theory 4. What is the role of expression trees in Spark SQL?
+Intermediate Theory 5. How does PySpark represent a DataFrame query plan?
+Intermediate Theory 6. What is a schema and why does Spark rely on it?
+Intermediate Theory 7. Why is predicate pushdown valuable for DataFrame queries?
+Intermediate Theory 8. What is partition pruning and how does it reduce scanning?
+Intermediate Theory 9. How do statistics influence query planning?
+Intermediate Theory 10. What is an adaptive query execution strategy?
+Intermediate Theory 11. How can AQE improve joins and shuffles?
+Intermediate Theory 12. What is a query plan and why should you inspect it?
+Intermediate Theory 13. How does Spark optimize joins using hints or heuristics?
+Intermediate Theory 14. What is a skewed join and how would you mitigate it?
+Intermediate Theory 15. Why are broadcast joins faster for small tables?
+Intermediate Theory 16. What is the difference between join order optimization and shuffle tuning?
+Intermediate Theory 17. When is a sort-merge join preferred?
+Intermediate Theory 18. How does Spark decide between hash join and sort-merge join?
+Intermediate Theory 19. Why is understanding execution lineage important for debugging?
+Intermediate Theory 20. What is a shuffle map stage?
+Intermediate Theory 21. How do stage boundaries form in a DAG?
+Intermediate Theory 22. What is a map stage and what distinguishes it from a reduce stage?
+Intermediate Theory 23. Why are tasks independent and idempotent in Spark?
+Intermediate Theory 24. How does caching affect task execution?
+Intermediate Theory 25. How does a persisted DataFrame change execution behavior?
+Intermediate Theory 26. How does Spark handle an executor failure mid-job?
+Intermediate Theory 27. What are recomputation and retry semantics in Spark?
+Intermediate Theory 28. Explain the relationship between a DataFrame and an execution DAG.
+Intermediate Theory 29. How does Spark handle partitioned file reads?
+Intermediate Theory 30. What is the difference between local and cluster execution mode?
+Intermediate Theory 31. How do executors use shuffle memory?
+Intermediate Theory 32. What is spill-to-disk and why is it important?
+Intermediate Theory 33. How do you identify memory pressure in the Spark UI?
+Intermediate Theory 34. What is the effect of object serialization on data transfer?
+Intermediate Theory 35. Why do Python UDFs sometimes destroy performance?
+Intermediate Theory 36. What is the role of the Tungsten execution engine?
+Intermediate Theory 37. How do DataFrame optimizations differ from raw RDD transformations?
+Intermediate Theory 38. What is a query plan tree and how do you read it?
+Intermediate Theory 39. Why does Spark encourage columnar execution?
+Intermediate Theory 40. How can a bad partitioning strategy cause a slow job?
+Intermediate Theory 41. What is the purpose of task retries and speculative execution?
+Intermediate Theory 42. How does Spark manage CPU, memory, and network across tasks?
+Intermediate Theory 43. What is the difference between a logical plan and a physical plan?
+Intermediate Theory 44. Why does Spark optimize before execution rather than after?
+Intermediate Theory 45. How do you reason about the trade-off between CPU and I/O in Spark?
+Intermediate Theory 46. How does Spark enforce fault tolerance for transformations?
+Intermediate Theory 47. What happens to cached data when the cluster is restarted?
+Intermediate Theory 48. How do you interpret a Spark SQL explain plan?
+Intermediate Theory 49. What is the significance of the number of shuffle partitions?
+Intermediate Theory 50. When would you use cache() versus persist()?
+Intermediate Theory 51. How does Spark use column pruning during reads?
+Intermediate Theory 52. What is partial aggregation and why does it help?
+Intermediate Theory 53. How does a broad transformation affect the execution DAG?
+Intermediate Theory 54. What is the purpose of `explain()` for debugging?
+Intermediate Theory 55. What is lazy evaluation and how does it support optimization?
+Intermediate Theory 56. How does Spark optimize nested queries?
+Intermediate Theory 57. What is a fan-out operation in Spark?
+Intermediate Theory 58. How do you debug a slow join in Spark?
+Intermediate Theory 59. How does sorting data impact shuffle cost?
+Intermediate Theory 60. What is the relationship between RDD lineage and DataFrame plans?
+Intermediate Theory 61. How do you reason about task skew vs. data skew?
+Intermediate Theory 62. What is the significance of the number of executors and cores per executor?
+Intermediate Theory 63. How does Spark structure a standard SQL query into DAG tasks?
+Intermediate Theory 64. What is the purpose of statistics collection in table metadata?
+Intermediate Theory 65. How do Spark SQL and DataFrame APIs differ semantically?
+
+--- Intermediate - SQL ---
+Intermediate SQL 1. How do you write an efficient join between a fact table and a dimension table?
+Intermediate SQL 2. What is the difference between inner join and left semi join?
+Intermediate SQL 3. How do you identify duplicate keys using SQL?
+Intermediate SQL 4. How do you calculate running totals in Spark SQL?
+Intermediate SQL 5. How do you implement row-numbering per group in Spark SQL?
+Intermediate SQL 6. How do you use window functions for rank calculations?
+Intermediate SQL 7. How do you filter records by the latest date in a SQL query?
+Intermediate SQL 8. How do you derive a first and last event per user using SQL?
+Intermediate SQL 9. How do you use aggregation with multiple grouping columns?
+Intermediate SQL 10. How do you write an anti-join in Spark SQL?
+Intermediate SQL 11. How do you implement a conditional aggregation with CASE WHEN?
+Intermediate SQL 12. What is the impact of using ORDER BY inside a subquery?
+Intermediate SQL 13. How do you optimize a SQL query with expensive joins?
+Intermediate SQL 14. How do you write a query to find missing keys between two tables?
+Intermediate SQL 15. How do you compute month-over-month changes in SQL?
+Intermediate SQL 16. How do you use date functions for time-window analysis?
+Intermediate SQL 17. How do you drop duplicates while preserving the latest record?
+Intermediate SQL 18. How do you remove nulls before aggregation?
+Intermediate SQL 19. How do you do conditional filtering with NULL-safe logic?
+Intermediate SQL 20. How do you query a nested JSON field in Spark SQL?
+Intermediate SQL 21. How do you flatten arrays in SQL using explode?
+Intermediate SQL 22. How do you aggregate arrays into summary metrics?
+Intermediate SQL 23. How do you use array_contains in Spark SQL?
+Intermediate SQL 24. How do you use map_keys and map_values?
+Intermediate SQL 25. How do you handle nulls in aggregated expressions?
+Intermediate SQL 26. How do you use SUM with CASE WHEN filtering?
+Intermediate SQL 27. How do you use SQL to identify outliers?
+Intermediate SQL 28. How do you compute a percentile-like summary in Spark SQL?
+Intermediate SQL 29. How do you analyze data by hour, day, and month?
+Intermediate SQL 30. How do you create a time-series trend query?
+Intermediate SQL 31. How do you use multiple CTEs in a Spark SQL query?
+Intermediate SQL 32. How do you handle duplicate definitions in SQL views?
+Intermediate SQL 33. How do you optimize a query with many OR clauses?
+Intermediate SQL 34. How do you write a query that finds the top N records per group?
+Intermediate SQL 35. How do you manage many-to-many joins in SQL?
+Intermediate SQL 36. How do you avoid cartesian joins in Spark SQL?
+Intermediate SQL 37. How do you handle table aliases in complex joins?
+Intermediate SQL 38. How do you rewrite a query to improve pushdown opportunities?
+Intermediate SQL 39. How do you compare two datasets using SQL set operations?
+Intermediate SQL 40. How do you join on a transformed column?
+Intermediate SQL 41. How do you use SQL to count events by date bucket?
+Intermediate SQL 42. How do you filter rows where a value occurs more than once?
+Intermediate SQL 43. How do you query only rows from the last 7 days?
+Intermediate SQL 44. How do you query a table that is partitioned by date?
+Intermediate SQL 45. How do you use NULL handling in aggregate functions?
+Intermediate SQL 46. How do you validate the correctness of a SQL query result?
+Intermediate SQL 47. What is the role of `HAVING` after `GROUP BY`?
+Intermediate SQL 48. How do you compare two versions of a dataset using SQL?
+Intermediate SQL 49. How do you use `COUNT(DISTINCT ...)` efficiently?
+Intermediate SQL 50. How do you use `ROUND` and `TRUNCATE` in SQL?
+Intermediate SQL 51. How do you calculate cumulative sums in SQL?
+Intermediate SQL 52. How do you evaluate differences between adjacent rows?
+Intermediate SQL 53. How do you simulate a pivot in Spark SQL?
+Intermediate SQL 54. How do you use `GROUP BY` with rollups and cubes?
+Intermediate SQL 55. How do you handle schema drift in a SQL query?
+Intermediate SQL 56. How do you perform a left semi join in Spark SQL?
+Intermediate SQL 57. How do you use `exists` over grouped data?
+Intermediate SQL 58. How do you do date arithmetic in Spark SQL?
+Intermediate SQL 59. What is the difference between `JOIN` and `UNION`?
+Intermediate SQL 60. How do you compute row counts before and after joins?
+Intermediate SQL 61. How do you use SQL to investigate null-heavy columns?
+Intermediate SQL 62. How do you handle trailing spaces during join comparisons?
+Intermediate SQL 63. How do you use `regexp_extract` and `regexp_replace`?
+Intermediate SQL 64. How do you examine query plans for complex SQL joins?
+Intermediate SQL 65. How do you aggregate customer behavior by region?
+Intermediate SQL 66. How do you identify out-of-order events using SQL?
+Intermediate SQL 67. How do you compute session boundaries with SQL windows?
+Intermediate SQL 68. How do you use `approx_count_distinct` in Spark SQL?
+Intermediate SQL 69. How do you run ad hoc SQL analysis on a DataFrame?
+Intermediate SQL 70. How do you convert a SQL result to a DataFrame?
+Intermediate SQL 71. How do you list the tables available to Spark SQL?
+Intermediate SQL 72. How do you create a temporary table from a query result?
+Intermediate SQL 73. How do you use using columns in joins?
+Intermediate SQL 74. How do you optimize joins on large fact tables?
+Intermediate SQL 75. How do you write a query for retention analysis?
+Intermediate SQL 76. How do you query only the latest partition in a data lake?
+Intermediate SQL 77. How do you use `collect_set` or `collect_list`?
+
+--- Intermediate - RDD ---
+Intermediate RDD 1. How do you build an RDD from an external data source?
+Intermediate RDD 2. What is the role of partitioning in RDD operations?
+Intermediate RDD 3. How does mapPartitions differ from map?
+Intermediate RDD 4. Why would you use union and intersection together?
+Intermediate RDD 5. How do you compute key frequencies with an RDD?
+Intermediate RDD 6. What is the difference between reduceByKey and groupByKey?
+Intermediate RDD 7. Why is reduceByKey generally more efficient?
+Intermediate RDD 8. How do you write custom aggregation on key-value RDDs?
+Intermediate RDD 9. How do you maintain state across partitions in RDD operations?
+Intermediate RDD 10. How do you flatten nested lists in an RDD?
+Intermediate RDD 11. How do you perform a custom transformation on each partition?
+Intermediate RDD 12. What is the benefit of mapPartitionsWithIndex?
+Intermediate RDD 13. How do you avoid shipping large objects across the network in RDD work?
+Intermediate RDD 14. What is the impact of a non-shuffle transformation?
+Intermediate RDD 15. How do you count values per key using RDD APIs?
+Intermediate RDD 16. How do you compute total sales by key using aggregateByKey?
+Intermediate RDD 17. How do you implement a word count with RDDs?
+Intermediate RDD 18. How does a pair RDD improve analytics tasks?
+Intermediate RDD 19. How do you sort a key-value RDD by key?
+Intermediate RDD 20. How do you sort by value in an RDD?
+Intermediate RDD 21. How do you use sample() in a probabilistic analysis?
+Intermediate RDD 22. When should you use `persist()` on an RDD?
+Intermediate RDD 23. What is treeAggregate() and when is it useful?
+Intermediate RDD 24. How do you compute a running total using an RDD?
+Intermediate RDD 25. What is the difference between count and countApprox?
+Intermediate RDD 26. How do you troubleshoot a failing RDD transformation?
+Intermediate RDD 27. What is the role of lineage in debugging RDD failures?
+Intermediate RDD 28. How do you handle duplicates in an RDD?
+Intermediate RDD 29. How do you keep only unique keys from an RDD?
+Intermediate RDD 30. How do you join two pair RDDs efficiently?
+Intermediate RDD 31. What is the problem of data skew in pair RDD joins?
+Intermediate RDD 32. How do you compute global statistics from an RDD?
+Intermediate RDD 33. What is the use of zipPartitions?
+Intermediate RDD 34. How do you use `glom()` for diagnostic purposes?
+Intermediate RDD 35. How do you restructure an RDD into a key-value form?
+Intermediate RDD 36. What is the purpose of `combineByKey`?
+Intermediate RDD 37. How do you create a custom aggregator for an RDD?
+Intermediate RDD 38. What is `aggregate` used for in Spark?
+Intermediate RDD 39. How do you compute minimum and maximum values in an RDD?
+Intermediate RDD 40. How do you use `lookup` on a pair RDD?
+Intermediate RDD 41. How do you combine multiple RDDs with set semantics?
+Intermediate RDD 42. How do you use `takeOrdered` on an RDD?
+Intermediate RDD 43. How do you compute the top K values using an RDD?
+Intermediate RDD 44. How do you transform raw records into structured pairs?
+Intermediate RDD 45. How do you use `filter` and `map` to normalize data?
+Intermediate RDD 46. What is `flatMapValues` and when would you use it?
+Intermediate RDD 47. How do you create a custom partitioner for an RDD?
+Intermediate RDD 48. What is the cost of performing a full shuffle in RDD operations?
+Intermediate RDD 49. How do you measure the number of partitions in an RDD?
+Intermediate RDD 50. How do you decide the right number of partitions for an RDD?
+Intermediate RDD 51. How do you handle missing keys in a key-value RDD?
+Intermediate RDD 52. What is the purpose of `sortByKey`?
+Intermediate RDD 53. How do you implement groupings without `groupByKey`?
+Intermediate RDD 54. How do you process a huge RDD without exhausting memory?
+Intermediate RDD 55. What are common pitfalls when using `collect()` on large RDDs?
+Intermediate RDD 56. How do you use checkpointing for iterative RDD workflows?
+Intermediate RDD 57. What is the difference between `union` and `intersection`?
+Intermediate RDD 58. How do you calculate distinct counts in an RDD?
+Intermediate RDD 59. How do you handle large broadcasts with RDDs?
+Intermediate RDD 60. What is `cartesian` and when do you avoid it?
+Intermediate RDD 61. How do you reconstruct a DataFrame from an RDD?
+Intermediate RDD 62. How do you preserve ordering during RDD sorting?
+Intermediate RDD 63. What is `takeSample` and what are its trade-offs?
+Intermediate RDD 64. How do you use `pipe` for custom transformation logic?
+Intermediate RDD 65. How do you estimate low-level memory cost for RDD operations?
+Intermediate RDD 66. How do you avoid multiple passes over the same RDD?
+Intermediate RDD 67. What is the effect of executor memory settings on RDD performance?
+Intermediate RDD 68. How do you handle serialization with custom classes in RDDs?
+Intermediate RDD 69. How do you interpret a failed RDD stage in the Spark UI?
+Intermediate RDD 70. What is the advantage of using RDDs for custom low-level algorithms?
+
+--- Intermediate - DataFrame ---
+Intermediate DataFrame 1. How do you handle schema mismatches when creating a DataFrame?
+Intermediate DataFrame 2. What are the trade-offs between inferring and defining a schema?
+Intermediate DataFrame 3. How do you avoid expensive repeated schema definitions?
+Intermediate DataFrame 4. How do you apply custom transformations with DataFrame columns?
+Intermediate DataFrame 5. How do you write a multi-condition filter in a DataFrame?
+Intermediate DataFrame 6. How do you compute grouped KPIs with DataFrame APIs?
+Intermediate DataFrame 7. What is the difference between `select` and `withColumn`?
+Intermediate DataFrame 8. How do you check the number of rows and columns in a DataFrame?
+Intermediate DataFrame 9. How do you handle duplicate column names in joins?
+Intermediate DataFrame 10. How do you eliminate accidental duplicate columns after join?
+Intermediate DataFrame 11. How do you use `alias` to improve readability?
+Intermediate DataFrame 12. How do you convert nested objects into a flat DataFrame?
+Intermediate DataFrame 13. How do you use `explode` for nested arrays?
+Intermediate DataFrame 14. How do you use `pivot` with a DataFrame?
+Intermediate DataFrame 15. What is the purpose of `sortWithinPartitions`?
+Intermediate DataFrame 16. How do you use `approx_count_distinct` in a DataFrame?
+Intermediate DataFrame 17. How do you use conditional expressions in DataFrame columns?
+Intermediate DataFrame 18. How do you implement a row_number window in DataFrames?
+Intermediate DataFrame 19. What are the benefits of using window functions in DataFrames?
+Intermediate DataFrame 20. How do you compute lag and lead values?
+Intermediate DataFrame 21. How do you create a sessionization query with DataFrames?
+Intermediate DataFrame 22. How do you handle nulls before a join?
+Intermediate DataFrame 23. How do you standardize date strings before filtering?
+Intermediate DataFrame 24. What is the impact of using `broadcast` in DataFrame joins?
+Intermediate DataFrame 25. How do you optimize a join with DataFrame API?
+Intermediate DataFrame 26. How do you build a DataFrame from a complex schema?
+Intermediate DataFrame 27. What is the purpose of `na.fill` and `na.drop`?
+Intermediate DataFrame 28. How do you apply custom string normalization with DataFrame functions?
+Intermediate DataFrame 29. How do you use `when` and `otherwise` for classification?
+Intermediate DataFrame 30. How do you compute percentiles or quantiles with DataFrames?
+Intermediate DataFrame 31. How do you sample a DataFrame efficiently?
+Intermediate DataFrame 32. How do you create a partitioned output from a DataFrame?
+Intermediate DataFrame 33. How do you write a DataFrame to Parquet with the right partitioning?
+Intermediate DataFrame 34. How do you merge DataFrames with the same schema?
+Intermediate DataFrame 35. What is the cost of using Python UDFs in DataFrame transformations?
+Intermediate DataFrame 36. How do you choose between selecting columns early or later?
+Intermediate DataFrame 37. How do you use `dropDuplicates` with a subset of columns?
+Intermediate DataFrame 38. How do you combine DataFrame validations and data quality checks?
+Intermediate DataFrame 39. How do you create a derived column from multiple fields?
+Intermediate DataFrame 40. How do you create a DataFrame from a nested JSON structure?
+Intermediate DataFrame 41. How do you use `struct` and `array` functions?
+Intermediate DataFrame 42. How do you flatten a StructType nested DataFrame?
+Intermediate DataFrame 43. How do you use `map_from_entries` in DataFrame operations?
+Intermediate DataFrame 44. How do you aggregate nested values in a DataFrame?
+Intermediate DataFrame 45. What is `repartitionByRange` and when is it useful?
+Intermediate DataFrame 46. How do you use `limit` after sorting for performance?
+Intermediate DataFrame 47. How do you reduce DataFrame memory footprint?
+Intermediate DataFrame 48. How do you write DataFrame SQL for reuse?
+Intermediate DataFrame 49. How do you register a DataFrame as a temporary view for SQL?
+Intermediate DataFrame 50. How do you inspect the query plan for a DataFrame?
+Intermediate DataFrame 51. What is `explain(true)` and what does it show?
+Intermediate DataFrame 52. How do you use `stat` functions for data profiling?
+Intermediate DataFrame 53. How do you calculate skewed value frequencies in a DataFrame?
+Intermediate DataFrame 54. How do you handle large lookup tables with DataFrame joins?
+Intermediate DataFrame 55. What is the role of partition pruning in DataFrame reads?
+Intermediate DataFrame 56. How do you implement incremental load logic with DataFrames?
+Intermediate DataFrame 57. How do you create a delta-like logical pattern in PySpark SQL?
+Intermediate DataFrame 58. How do you choose the best projection for minimal I/O?
+Intermediate DataFrame 59. How do you optimize DataFrame OR filters?
+Intermediate DataFrame 60. How do you compare results across two DataFrames?
+Intermediate DataFrame 61. How do you compute a cumulative sum in a DataFrame?
+Intermediate DataFrame 62. How do you join a DataFrame with a self-reference?
+Intermediate DataFrame 63. How do you design a DataFrame pipeline for QA checks?
+Intermediate DataFrame 64. What is the effect of `selectExpr` in DataFrame APIs?
+Intermediate DataFrame 65. How do you write generic DataFrame code for multiple inputs?
+Intermediate DataFrame 66. How do you use cross joins carefully in DataFrames?
+Intermediate DataFrame 67. How do you avoid full scans when filtering by partition columns?
+Intermediate DataFrame 68. How do you implement a simple ETL pipeline with DataFrames?
+Intermediate DataFrame 69. How do you create a DataFrame from a SQL query result?
+Intermediate DataFrame 70. How do you manage expression reuse with `expr`?
+Intermediate DataFrame 71. How do you use `approxQuantile` in Spark?
+Intermediate DataFrame 72. What is the value of `toPandas()` in exploratory work and its risk?
+Intermediate DataFrame 73. How do you convert a large dataset to a non-distributed Pandas object safely?
+Intermediate DataFrame 74. What is the effect of `cache` on a computed DataFrame?
+Intermediate DataFrame 75. How do you use `checkpoint` in DataFrame workflows?
+
+--- Intermediate - Scenario-Based ---
+Intermediate Scenario-Based 1. Scenario: An ETL job reads a large CSV and then applies multiple filters. How would you reduce the amount of data processed before expensive transformations?
+Intermediate Scenario-Based 2. Scenario: You need to join a 20 GB orders table with a 2 MB customer table. Which DataFrame optimization would you apply?
+Intermediate Scenario-Based 3. Scenario: A DataFrame query produces an unexpectedly large number of partitions. How would you diagnose and fix it?
+Intermediate Scenario-Based 4. Scenario: A table has daily records and you need the latest row per user while preserving all columns. How would you implement it?
+Intermediate Scenario-Based 5. Scenario: A DataFrame has nested arrays and you need summary statistics per element. How would you structure the pipeline?
+Intermediate Scenario-Based 6. Scenario: You have a job that repeatedly filters the same DataFrame for 12 conditions. How would you make it more efficient?
+Intermediate Scenario-Based 7. Scenario: A query fails because of duplicate column names after a join. How would you resolve it cleanly?
+Intermediate Scenario-Based 8. Scenario: A report needs the top 10 categories by revenue. How would you express the logic in DataFrame API and SQL?
+Intermediate Scenario-Based 9. Scenario: A product table is skewed because a few SKUs are very large. How would you diagnose and reduce skew?
+Intermediate Scenario-Based 10. Scenario: You are asked to compare current-day and previous-day sales by customer. How would you design the query?
+Intermediate Scenario-Based 11. Scenario: A dataset contains malformed date strings and nulls. What DataFrame transformations would you apply before analysis?
+Intermediate Scenario-Based 12. Scenario: You need to process a large log file with repeated access patterns. How would you use caching or persistence?
+Intermediate Scenario-Based 13. Scenario: You need to identify the first event for each user after a threshold date. How would you use window functions?
+Intermediate Scenario-Based 14. Scenario: A join result has more rows than expected. What checks would you perform to find the cause?
+Intermediate Scenario-Based 15. Scenario: A DataFrame pipeline transforms a large dataset with a Python UDF. How would you assess whether it is the bottleneck?
+Intermediate Scenario-Based 16. Scenario: A team wants to analyze a nested JSON event stream with arrays. How would you flatten it for SQL analysis?
+Intermediate Scenario-Based 17. Scenario: A query contains many OR conditions. How would you rewrite it to improve readability and performance?
+Intermediate Scenario-Based 18. Scenario: You’re issuing repeated queries against a static dimension table. How would you optimize reads and memory usage?
+Intermediate Scenario-Based 19. Scenario: A job is producing slow output due to full-shuffle aggregations. What design changes would you explore?
+Intermediate Scenario-Based 20. Scenario: You need to aggregate on multiple columns and keep only rows above a threshold. How would you structure the logic?
+Intermediate Scenario-Based 21. Scenario: A DataFrame includes both raw and transformed events. How would you keep a clean lineage of transformations?
+Intermediate Scenario-Based 22. Scenario: You need to identify customers who appear in one table but not another. Which join pattern would you use?
+Intermediate Scenario-Based 23. Scenario: A dataset has missing values across many columns. How would you audit and clean it before aggregation?
+Intermediate Scenario-Based 24. Scenario: You need to create a performance baseline for a DataFrame job. What metrics or steps would you use?
+Intermediate Scenario-Based 25. Scenario: A DataFrame is expensive to compute because of repeated recomputation. What would you change?
+Intermediate Scenario-Based 26. Scenario: A join creates large intermediate results. How would you reduce the cost without changing business logic?
+Intermediate Scenario-Based 27. Scenario: A query is selectively reading only a subset of partitioned data. How would you ensure partition pruning is used?
+Intermediate Scenario-Based 28. Scenario: A product dataset stores arrays of tags. How would you count tag frequencies by product?
+Intermediate Scenario-Based 29. Scenario: You need to compute daily KPI trends by region. How would you use a DataFrame grouping query?
+Intermediate Scenario-Based 30. Scenario: You are asked to create a reusable Spark SQL view over a DataFrame for multiple analysts. How would you expose it?
+Intermediate Scenario-Based 31. Scenario: A table has an unbounded number of partitions, hurting performance. How would you compact them?
+Intermediate Scenario-Based 32. Scenario: You need to eliminate duplicate records while retaining the latest timestamp. How would you implement it?
+Intermediate Scenario-Based 33. Scenario: A dataset has values spread across many partitions. How would you check and fix partition imbalance?
+Intermediate Scenario-Based 34. Scenario: You need to process a workload involving extensive group-by and count operations. How would you design to minimize shuffle?
+Intermediate Scenario-Based 35. Scenario: A DataFrame must be written to a partitioned Parquet table. How would you structure the output?
+Intermediate Scenario-Based 36. Scenario: A query is slower than expected because of a sort before a limit. What would you change?
+Intermediate Scenario-Based 37. Scenario: You need to compute cumulative spend per customer. How would you solve it with window functions?
+Intermediate Scenario-Based 38. Scenario: A value comparison fails because of irregular whitespace and case. How would you normalize the data before joining?
+Intermediate Scenario-Based 39. Scenario: A DataFrame contains high-cardinality keys and a few very large groups. How would you plan around skew?
+Intermediate Scenario-Based 40. Scenario: You need to profile data quality before running aggregation. What checks would you run?
+Intermediate Scenario-Based 41. Scenario: A pipeline reads multiple small files and you want to reduce overhead. What changes would you consider?
+Intermediate Scenario-Based 42. Scenario: A join on a transformed key results in low matching rates. How would you inspect and fix it?
+Intermediate Scenario-Based 43. Scenario: You need to calculate the unique customer count over time. How would you write the logic?
+Intermediate Scenario-Based 44. Scenario: A DataFrame uses a nested struct and you need to compute aggregated values for each field. How would you solve it?
+Intermediate Scenario-Based 45. Scenario: You need to create a DataFrame from a list of dictionaries and enforce a strict schema. How would you do it?
+Intermediate Scenario-Based 46. Scenario: A team reports missing rows after a full outer join. How would you validate the join conditions and null handling?
+Intermediate Scenario-Based 47. Scenario: A job is doing heavy filtering and aggregation across multiple columns. How would you structure the pipeline for readability and efficiency?
+Intermediate Scenario-Based 48. Scenario: You need to flatten a deeply nested JSON object into multiple DataFrame columns. How would you do it?
+Intermediate Scenario-Based 49. Scenario: A DataFrame is used in multiple SQL queries. How would you expose it as a reusable table for the team?
+Intermediate Scenario-Based 50. Scenario: A query needs to compare customer behavior across 30-day windows. How would you implement it with DataFrame functions?
+Intermediate Scenario-Based 51. Scenario: You need to find records with the highest value per key while maintaining one row per key. How would you implement the logic?
+Intermediate Scenario-Based 52. Scenario: A pipeline is designed for analytics workloads and must support fast reads. Which file format and partitioning strategy would you prefer?
+Intermediate Scenario-Based 53. Scenario: A dataset includes both valid and invalid rows. How would you separate and report them in PySpark?
+Intermediate Scenario-Based 54. Scenario: You need to identify when a customer had a repeated purchase within a window. How would you compute it?
+Intermediate Scenario-Based 55. Scenario: A DataFrame is joined with a large dimension table and then aggregated. How would you tune it for balanced execution?
+Intermediate Scenario-Based 56. Scenario: A job needs to use only a subset of columns from many files. How would you minimize I/O and memory usage?
+Intermediate Scenario-Based 57. Scenario: A production query has been degrading over time. What operational checks would you perform in Spark SQL?
+Intermediate Scenario-Based 58. Scenario: You need to calculate weekly trends from daily data. How would you write the logic in Spark SQL or DataFrames?
+
+========================================================================================================================
+ADVANCED LEVEL
+========================================================================================================================
+
+--- Advanced - Fundamentals ---
+Advanced Fundamentals 1. How would you design a high-throughput PySpark pipeline for a large-scale ETL workload?
+Advanced Fundamentals 2. How do you architect a Spark job to minimize memory pressure and shuffle cost?
+Advanced Fundamentals 3. Explain how to build a scalable data processing system using PySpark fundamentals.
+Advanced Fundamentals 4. How do partitioning, executor sizing, and file layout interact in large Spark jobs?
+Advanced Fundamentals 5. What are the trade-offs between data locality, memory, and network I/O in PySpark?
+Advanced Fundamentals 6. How would you decide whether to use RDDs, DataFrames, or SQL for a given pipeline?
+Advanced Fundamentals 7. How do you structure a PySpark solution for cost-aware distributed processing?
+Advanced Fundamentals 8. What are the benefits of building pipelines around DataFrame semantics instead of imperative transformations?
+Advanced Fundamentals 9. How does Spark handle computational skew across executors and tasks?
+Advanced Fundamentals 10. How would you reason about the optimal level of parallelism in a cluster?
+Advanced Fundamentals 11. What is the impact of executor core count on throughput and stability?
+Advanced Fundamentals 12. How do you tune memory for shuffle and aggregation-heavy workloads?
+Advanced Fundamentals 13. What is the role of serialization in large-scale Spark jobs?
+Advanced Fundamentals 14. How do you decide between wide and narrow transformations in an advanced pipeline?
+Advanced Fundamentals 15. How do you reason about data volume growth against cluster resources?
+Advanced Fundamentals 16. What is the relationship between cluster sizing and partition granularity?
+Advanced Fundamentals 17. How would you monitor and continuously tune a PySpark job in production?
+Advanced Fundamentals 18. What is the effect of skew on the cluster and how do you plan for it?
+Advanced Fundamentals 19. How do you optimize large-scale filter, join, and aggregation workflows?
+Advanced Fundamentals 20. What is the significance of DAG depth in large jobs?
+Advanced Fundamentals 21. How do you reduce the cost of repeated read operations across an enterprise dataset?
+Advanced Fundamentals 22. How do you choose between caching, persistence, checkpointing, and recomputation?
+Advanced Fundamentals 23. What design principles matter for robust distributed analytics?
+Advanced Fundamentals 24. How do you create a resilient ETL using proper partitioning and execution plans?
+Advanced Fundamentals 25. How would you architect a job that must balance latency and throughput?
+Advanced Fundamentals 26. How do you evaluate whether a job is CPU-bound, I/O-bound, or network-bound?
+Advanced Fundamentals 27. How do you manage large intermediate state in PySpark transformations?
+Advanced Fundamentals 28. What is the value of estimating row counts before expensive operations?
+Advanced Fundamentals 29. How do you reduce the cost of variable-length records in a distributed dataset?
+Advanced Fundamentals 30. What metrics from the Spark UI help diagnose architecture-level issues?
+Advanced Fundamentals 31. How do you design around data skew without sacrificing correctness?
+Advanced Fundamentals 32. How do you build maintainable PySpark code for enterprise-scale datasets?
+Advanced Fundamentals 33. How do you operationalize schema discipline in large jobs?
+Advanced Fundamentals 34. What is the strategic value of table statistics in Spark SQL?
+Advanced Fundamentals 35. How do you design queries to respect cluster boundaries and resource limits?
+Advanced Fundamentals 36. How do you reason about partition counts, shuffles, and task durations?
+Advanced Fundamentals 37. What are the architecture trade-offs of using broad transformations?
+Advanced Fundamentals 38. How do you keep a Spark workload deterministic and testable?
+Advanced Fundamentals 39. How would you define a scalable data quality framework with PySpark?
+Advanced Fundamentals 40. How do you ensure correctness under heavy repartitioning and joins?
+Advanced Fundamentals 41. What are the implications of using a large number of small files?
+Advanced Fundamentals 42. How do you design a pipeline so it recovers from executor failures gracefully?
+Advanced Fundamentals 43. How do you decide whether to stage data before aggregation?
+Advanced Fundamentals 44. How do you handle very high cardinality keys in data processing?
+Advanced Fundamentals 45. What is the use of adaptive planning in advanced Spark architecture?
+Advanced Fundamentals 46. How do you design for predictable runtime in a distributed system?
+Advanced Fundamentals 47. How do you reason about storage formats for warehouse-scale processing?
+Advanced Fundamentals 48. How do you choose between raw RDDs and DataFrame abstractions at scale?
+Advanced Fundamentals 49. What is the effect of data distribution on compute cost?
+Advanced Fundamentals 50. How do you engineer around network bottlenecks in PySpark?
+Advanced Fundamentals 51. What is the importance of resource isolation in shared clusters?
+Advanced Fundamentals 52. How do you evaluate whether to use repartition or coalesce in an advanced workflow?
+Advanced Fundamentals 53. How do you reduce running time for repeated analytical queries in a cluster?
+Advanced Fundamentals 54. What is the effect of poorly tuned partitions on cluster utilization?
+Advanced Fundamentals 55. How do you think about query-level and job-level optimization together?
+Advanced Fundamentals 56. How do you tune a large parallel ETL for stable performance?
+Advanced Fundamentals 57. How do you reason about the cost of sorting and grouping at scale?
+Advanced Fundamentals 58. What is the role of memory hierarchy in efficient distributed processing?
+Advanced Fundamentals 59. How do you manage concurrency in multiple Spark jobs?
+Advanced Fundamentals 60. How do you ensure portable and explainable SQL logic in a distributed warehouse?
+Advanced Fundamentals 61. What is the role of data contracts in reliable PySpark pipelines?
+Advanced Fundamentals 62. How do you design a robust top-N analysis in a distributed cluster?
+Advanced Fundamentals 63. How do you reduce stale or incorrect output in a pipeline that touches large datasets?
+Advanced Fundamentals 64. How do you reason about checkpoint boundaries in large-scale processing?
+Advanced Fundamentals 65. What is the importance of lineage for reproducible pipelines?
+Advanced Fundamentals 66. How do you use storage layout to reduce read amplification?
+Advanced Fundamentals 67. How do you select the correct file format for reusability and performance?
+Advanced Fundamentals 68. How do you troubleshoot a job with high executor memory overhead?
+Advanced Fundamentals 69. How would you build a policy for cluster resource selection?
+Advanced Fundamentals 70. What is the impact of SQL optimization on DataFrame execution?
+Advanced Fundamentals 71. How do you evaluate the cost of a join before actually running it?
+Advanced Fundamentals 72. How do you address cluster imbalance before it becomes a production issue?
+Advanced Fundamentals 73. What is the relationship between job durations and task granularity?
+Advanced Fundamentals 74. How do you define an intelligent data partitioning strategy?
+Advanced Fundamentals 75. How do you optimize for throughput without sacrificing correctness?
+Advanced Fundamentals 76. How do you design a maintainable set of Spark transformations?
+Advanced Fundamentals 77. What are the principles of scalable PySpark architecture?
+Advanced Fundamentals 78. How do you decide whether to use SQL or the DataFrame API in a large project?
+Advanced Fundamentals 79. How do you evaluate whether a transformation is naturally parallelizable?
+Advanced Fundamentals 80. How do you build dependency-aware pipelines with minimal recomputation?
+Advanced Fundamentals 81. What is the relationship between data model quality and Spark performance?
+
+--- Advanced - Theory ---
+Advanced Theory 1. Explain how the Catalyst optimizer transforms a logical SQL plan into an executable physical plan.
+Advanced Theory 2. How does adaptive query execution change performance assumptions in Spark SQL?
+Advanced Theory 3. What are the trade-offs of pushing predicates down to the storage layer?
+Advanced Theory 4. How do joins become shuffles and why does that matter?
+Advanced Theory 5. How do you interpret a Spark SQL execution plan for a slow query?
+Advanced Theory 6. What is the significance of the DAG scheduler in Spark execution?
+Advanced Theory 7. How do stage boundaries arise from dependency types?
+Advanced Theory 8. How do shuffle writes and reads interact with network bottlenecks?
+Advanced Theory 9. Why does distributed query planning require cost estimation?
+Advanced Theory 10. How does Spark handle data skew at the stage level?
+Advanced Theory 11. What is the role of partition pruning across query planning?
+Advanced Theory 12. How do stateful and stateless transformations differ semantically?
+Advanced Theory 13. What is the value of window functions in analytical processing?
+Advanced Theory 14. How do DAG optimizations differ from SQL optimizer rewrites?
+Advanced Theory 15. How do you reason about physical plan efficiency for a large join?
+Advanced Theory 16. What is the relationship between task granularity and scheduling overhead?
+Advanced Theory 17. How does Spark reduce query cost with column pruning?
+Advanced Theory 18. What is the role of statistics collection in optimization?
+Advanced Theory 19. How do memory spill and disk spill affect runtime?
+Advanced Theory 20. What are the performance implications of wide dependencies?
+Advanced Theory 21. Why is understanding executor memory a critical performance skill?
+Advanced Theory 22. What is the role of partitioning in reducing network transfers?
+Advanced Theory 23. What is the effect of data skew on task duration and cluster utilization?
+Advanced Theory 24. How does Spark architecture support fault tolerance through lineage?
+Advanced Theory 25. What is the difference between logical equivalence and physical efficiency?
+Advanced Theory 26. How can query plans reveal the root cause of slow Spark SQL jobs?
+Advanced Theory 27. How does the Spark scheduler optimize for data locality?
+Advanced Theory 28. How does a shuffle map stage influence job runtime?
+Advanced Theory 29. What is the purpose of stage-by-stage execution in Spark?
+Advanced Theory 30. How do partitions correspond to execution units?
+Advanced Theory 31. How does an unbalanced partition layout increase runtime?
+Advanced Theory 32. What is the effect of a large number of small tasks on scheduler overhead?
+Advanced Theory 33. What is the relationship between a DataFrame plan and the underlying DAG?
+Advanced Theory 34. How do you analyze job throughput from the Spark UI?
+Advanced Theory 35. What are the advanced implications of writing to too many partitions?
+Advanced Theory 36. How does adaptive query execution improve plans at runtime?
+Advanced Theory 37. What is the downside of using too much broadcasting?
+Advanced Theory 38. How do you reason about the memory cost of generated objects?
+Advanced Theory 39. How does Spark schedule tasks after a shuffle boundary?
+Advanced Theory 40. What are trade-offs of using sort-merge joins at scale?
+Advanced Theory 41. How do you detect a problem in a join plan by inspecting explain() output?
+Advanced Theory 42. How does partial aggregation reduce shuffle volume?
+Advanced Theory 43. What is the value of understanding cluster topology for Spark tuning?
+Advanced Theory 44. How do you assess whether a query is network-bound or CPU-bound?
+Advanced Theory 45. What is the importance of skew-aware partitioning?
+Advanced Theory 46. How do you diagnose a query dominated by stage serialization cost?
+Advanced Theory 47. How do you reason about memory spill during aggregation?
+Advanced Theory 48. What is the purpose of the shuffle write buffer?
+Advanced Theory 49. How do task retries influence throughput and stability?
+Advanced Theory 50. What does speculative execution do for stragglers?
+Advanced Theory 51. What is the relationship between plan optimization and execution semantics?
+Advanced Theory 52. How does theoretical parallelism differ from actual achieved parallelism?
+Advanced Theory 53. Why is DataFrame planning fundamentally different from imperative execution?
+Advanced Theory 54. How do query rewrites improve performance without changing results?
+Advanced Theory 55. How do you interpret an all-to-all data exchange in Spark execution?
+Advanced Theory 56. Why do large-scale analytic queries rely on columnar storage and scan reduction?
+Advanced Theory 57. How do you reason about join order optimization in a complex query?
+Advanced Theory 58. What is the effect of using many nested transformations before an action?
+Advanced Theory 59. What is the challenge of maintaining stable execution in a shared multi-tenant cluster?
+Advanced Theory 60. How do dynamic execution decisions reduce waste during query processing?
+Advanced Theory 61. How does Spark maintain correctness under task failure?
+Advanced Theory 62. What is the significance of resource-awareness during scheduling?
+Advanced Theory 63. How do you connect performance metrics to the physical plan?
+Advanced Theory 64. How do skew, shuffle, and spill interact in a slow job?
+Advanced Theory 65. What are the consequences of poor statistics on a large fact table?
+Advanced Theory 66. Why is plan inspection essential in Spark SQL debugging?
+Advanced Theory 67. What is the difference between physical optimization and logical optimization?
+Advanced Theory 68. How does Spark decide shuffle partition counts for a query?
+Advanced Theory 69. What is the value of tuning partitions before writing output?
+Advanced Theory 70. How do you identify a bottleneck caused by disk I/O?
+Advanced Theory 71. What is the role of the Spark UI in diagnosing a complex DAG?
+Advanced Theory 72. How do you interpret executor process and JVM memory usage?
+
+--- Advanced - SQL ---
+Advanced SQL 1. How do you structure a complex analytical SQL query in Spark SQL for optimal performance?
+Advanced SQL 2. How do you rewrite a query to reduce wide shuffle operations?
+Advanced SQL 3. How do you optimize a large analytical join with multiple conditions?
+Advanced SQL 4. How do you write a query that identifies the highest-value records per customer?
+Advanced SQL 5. How do you implement retention analysis using Spark SQL?
+Advanced SQL 6. How do you compute cumulative metrics over time using a window function?
+Advanced SQL 7. How do you design a query to detect anomalies in event data?
+Advanced SQL 8. How do you use multiple CTEs to clarify analytical SQL logic?
+Advanced SQL 9. How do you create a stable ranking logic in Spark SQL?
+Advanced SQL 10. How do you compute session windows for user activity logs?
+Advanced SQL 11. How do you perform historical analysis using date partition keys?
+Advanced SQL 12. How do you use SQL to validate data quality across dimensions?
+Advanced SQL 13. How do you analyze missing values by column and date bucket?
+Advanced SQL 14. How do you use aggregate functions with conditional expressions?
+Advanced SQL 15. How do you implement a time-series comparison with SQL?
+Advanced SQL 16. How do you design a query to find last non-null values?
+Advanced SQL 17. How do you query slow-changing dimension keys with SQL?
+Advanced SQL 18. How do you design a top-1-per-group query in Spark SQL?
+Advanced SQL 19. How do you use `ROW_NUMBER` to deduplicate while preserving latest data?
+Advanced SQL 20. How do you compute rolling averages from event-level data?
+Advanced SQL 21. How do you identify gaps in daily records using SQL?
+Advanced SQL 22. How do you create a pivot-style dataset using SQL?
+Advanced SQL 23. How do you write a robust anti-join query for data validation?
+Advanced SQL 24. How do you partition SQL results sensibly for downstream processing?
+Advanced SQL 25. How do you optimize queries involving large OR conditions?
+Advanced SQL 26. How do you design a retention and churn query in SQL?
+Advanced SQL 27. How do you compute event counts per hour across days?
+Advanced SQL 28. How do you use SQL to summarize nested data sets?
+Advanced SQL 29. How do you build a funnel analysis in Spark SQL?
+Advanced SQL 30. How do you validate the correctness of cumulative sums?
+Advanced SQL 31. How do you identify and remove near-duplicate records using SQL?
+Advanced SQL 32. How do you implement a query that reports customer activity windows?
+Advanced SQL 33. How do you use SQL queries for data profiling at scale?
+Advanced SQL 34. How do you write a query for null-safe match logic?
+Advanced SQL 35. How do you compute product adoption by month and region?
+Advanced SQL 36. How do you pick the correct join type for analytical workloads?
+Advanced SQL 37. How do you detect duplicate records using group-by and count?
+Advanced SQL 38. How do you build a self-join query that keeps only the latest row?
+Advanced SQL 39. How do you design a query for product-level lifetime value analysis?
+Advanced SQL 40. How do you compute from-to date ranges using SQL logic?
+Advanced SQL 41. How do you avoid ruining SQL performance with a cartesian product?
+Advanced SQL 42. How do you use `HAVING` to filter grouped results effectively?
+Advanced SQL 43. How do you validate the latest partition in a partitioned table?
+Advanced SQL 44. How do you write an aggregate query using `ROLLUP` or `CUBE`?
+Advanced SQL 45. How do you detect data drift in reference tables with SQL?
+Advanced SQL 46. How do you use SQL to compare series across time windows?
+Advanced SQL 47. How do you compute median or percentile-like outputs in Spark SQL?
+Advanced SQL 48. How do you write a query to flag stale records?
+Advanced SQL 49. How do you optimize a query that joins three large tables?
+Advanced SQL 50. How do you decide between `UNION ALL` and `UNION`?
+Advanced SQL 51. How do you use `approx_count_distinct` for large cardinality metrics?
+Advanced SQL 52. How do you implement daily active user analysis in Spark SQL?
+Advanced SQL 53. How do you query only the latest data from a partitioned table?
+Advanced SQL 54. How do you determine whether a query needs a broadcast join?
+Advanced SQL 55. How do you write a query that finds outliers with null-sensitive thresholds?
+Advanced SQL 56. How do you evaluate whether a SQL query is performing a full scan?
+Advanced SQL 57. How do you use `CASE` logic for rate buckets and segmentation?
+Advanced SQL 58. How do you compare results from two dates using SQL?
+Advanced SQL 59. How do you aggregate and rank by categories in SQL?
+Advanced SQL 60. How do you use SQL for a data quality audit across all columns?
+Advanced SQL 61. How do you handle array and map fields in analytical SQL?
+Advanced SQL 62. How do you flatten and summarize nested data with SQL?
+Advanced SQL 63. How do you create an efficient summary query with multiple grouped metrics?
+Advanced SQL 64. How do you design an incremental SQL workload with partition filters?
+Advanced SQL 65. How do you choose the best SQL constructs for a high-cardinality dataset?
+Advanced SQL 66. How do you write an analytical query to track conversion rates?
+Advanced SQL 67. How do you compute timed sequence gaps and overlaps using SQL?
+Advanced SQL 68. How do you create a de-duplicated table using SQL safely?
+Advanced SQL 69. How do you engineer a query to support multiple reporting dimensions?
+Advanced SQL 70. How do you design a SQL query to validate row counts before and after a merge?
+Advanced SQL 71. How do you use SQL to compare expected and actual distribution patterns?
+Advanced SQL 72. How do you optimize skewed group-by queries in Spark SQL?
+Advanced SQL 73. How do you implement a query to summarize by day, week, and month?
+Advanced SQL 74. How do you write a query for multi-step customer segmentation?
+Advanced SQL 75. How do you build a robust report using SQL window functions?
+Advanced SQL 76. How do you construct a query that answers a business KPI question accurately?
+
+--- Advanced - RDD ---
+Advanced RDD 1. How would you design a custom aggregation on an RDD for a large dataset?
+Advanced RDD 2. How do you use pair RDDs to optimize distributed aggregations?
+Advanced RDD 3. When is an RDD the right abstraction for a low-level custom algorithm?
+Advanced RDD 4. How do you choose between reduceByKey and groupByKey in a large RDD job?
+Advanced RDD 5. How do you implement a custom partitioner for skewed key-value data?
+Advanced RDD 6. What are the pitfalls of using cartesian joins on large RDDs?
+Advanced RDD 7. How do you use aggregateByKey to produce multiple metrics in one pass?
+Advanced RDD 8. How do you compute custom statistics using RDD.reduce and aggregate?
+Advanced RDD 9. How do you handle serialization issues in custom RDD transformations?
+Advanced RDD 10. How do you optimize a large RDD workflow that relies on repeated filtering?
+Advanced RDD 11. How do you reconstruct a key-value structure from raw records on an RDD?
+Advanced RDD 12. How do you use `combineByKey` to implement resilient aggregation logic?
+Advanced RDD 13. How do you engineer a memory-safe aggregation on a huge RDD?
+Advanced RDD 14. How do you build a robust top-K algorithm using RDDs?
+Advanced RDD 15. How do you use `mapPartitions` to reduce per-record overhead?
+Advanced RDD 16. How do you implement custom deduplication logic in an RDD?
+Advanced RDD 17. How do you compute customer spend summaries from a large pair RDD?
+Advanced RDD 18. How do you use `treeAggregate` for efficient distributed reductions?
+Advanced RDD 19. How do you handle large `countApprox` queries for sketch-based estimation?
+Advanced RDD 20. How do you implement a custom join on pair RDDs with skew awareness?
+Advanced RDD 21. How do you minimize network traffic when using groupByKey on large data?
+Advanced RDD 22. How do you use `zipPartitions` for parallel dataset combiner logic?
+Advanced RDD 23. How do you detect and reduce skew in pair RDD operations?
+Advanced RDD 24. How do you perform custom repartitioning for an RDD workflow?
+Advanced RDD 25. How do you build a partition-aware ETL using RDD operations?
+Advanced RDD 26. How do you use `coalesce` for post-aggregation optimization?
+Advanced RDD 27. How do you implement a stateful batch process on an RDD?
+Advanced RDD 28. How do you recover from job failure when using lineage-heavy RDD transformations?
+Advanced RDD 29. How would you design an RDD pipeline for a distributed search or text-analysis job?
+Advanced RDD 30. What is the value of checkpointing in iterative RDD processing?
+Advanced RDD 31. How do you inspect and diagnose a skewed RDD stage?
+Advanced RDD 32. How do you calculate aggregate metrics while preserving key structure?
+Advanced RDD 33. How do you transform an RDD of JSON strings into a structured dataset?
+Advanced RDD 34. How do you write custom RDD validation logic for data quality checks?
+Advanced RDD 35. How do you handle huge data volumes with low-level RDD operators?
+Advanced RDD 36. When is `flatMap` preferable to `map` for RDD processing?
+Advanced RDD 37. What is the impact of custom partitioning on shuffle behavior in RDDs?
+Advanced RDD 38. How do you use `countByKey` for quick frequency analysis?
+Advanced RDD 39. How do you use `lookup` and `join` for efficient key-based retrieval?
+Advanced RDD 40. How do you design an RDD workflow to avoid unnecessary recomputation?
+Advanced RDD 41. How do you transform unstructured text into a pair RDD for analysis?
+Advanced RDD 42. How do you compute the largest values by key using RDD APIs?
+Advanced RDD 43. How do you handle duplicate keys in RDD pair operations?
+Advanced RDD 44. How do you design an RDD-based event summarization workflow?
+Advanced RDD 45. How do you use `takeOrdered` for ranked output from a large RDD?
+Advanced RDD 46. How do you implement an RDD pipeline to detect repeated patterns?
+Advanced RDD 47. How do you combine set operations for dataset comparisons in RDDs?
+Advanced RDD 48. How do you use `sample` for approximate analysis without full processing?
+Advanced RDD 49. What is the impact of full RDD collection on cluster memory?
+Advanced RDD 50. How do you reduce the cost of repeated operations on a large RDD?
+Advanced RDD 51. How do you design a custom data cleaning pipeline with RDD primitives?
+Advanced RDD 52. How do you use `mapPartitionsWithIndex` to manage partition-level logic?
+Advanced RDD 53. How do you compute global aggregates while keeping per-partition states?
+Advanced RDD 54. How do you build a distributed RDD pipeline for large-scale event correlation?
+Advanced RDD 55. How do you tune the number of partitions in a high-throughput RDD job?
+Advanced RDD 56. How do you use `aggregate` to compute multiple metrics in one pass?
+Advanced RDD 57. What are the advanced trade-offs of `foreachPartition`?
+Advanced RDD 58. How do you implement a custom binning or grouping algorithm over RDDs?
+Advanced RDD 59. How do you decide between `sortByKey` and `groupByKey` for pre-sorted data?
+Advanced RDD 60. How do you use `union` and `intersection` for dataset comparison workflows?
+Advanced RDD 61. How do you exploit RDD lineage for incremental recovery or retry?
+Advanced RDD 62. How do you reason about the correctness of custom reducers on a large RDD?
+Advanced RDD 63. How do you implement a scalable event deduplication system using RDDs?
+Advanced RDD 64. What is the role of serialization in large custom RDD functions?
+Advanced RDD 65. How do you debug a custom RDD job that fails on a subset of partitions?
+Advanced RDD 66. How do you use `glom` to inspect partition-level data quality?
+
+--- Advanced - DataFrame ---
+Advanced DataFrame 1. How do you design a large-scale DataFrame pipeline with quality checks and optimization in mind?
+Advanced DataFrame 2. How do you build a DataFrame-based ETL that scales across cluster resources?
+Advanced DataFrame 3. How do you determine whether a DataFrame query is dominated by shuffle or scan cost?
+Advanced DataFrame 4. How do you design an efficient multi-table DataFrame join strategy?
+Advanced DataFrame 5. How do you avoid performance traps with repeated transformations on the same DataFrame?
+Advanced DataFrame 6. How do you implement a custom quality check framework on DataFrames?
+Advanced DataFrame 7. How do you use `explain` to diagnose a slow analytical DataFrame query?
+Advanced DataFrame 8. How would you rewrite a DataFrame pipeline to reduce both duplication and shuffle count?
+Advanced DataFrame 9. How do you design a DataFrame for large-scale filtering and aggregation without over-processing?
+Advanced DataFrame 10. How do you use window functions to solve advanced business questions in DataFrame APIs?
+Advanced DataFrame 11. How do you flatten nested data into a relational DataFrame structure for SQL analysis?
+Advanced DataFrame 12. How do you build a robust deduplication strategy that preserves the latest record?
+Advanced DataFrame 13. How do you choose between `select`, `withColumn`, and `agg` for a large pipeline?
+Advanced DataFrame 14. How do you optimize joins with large dimension tables in DataFrames?
+Advanced DataFrame 15. How do you use `approx_count_distinct` to reduce memory usage in analytics?
+Advanced DataFrame 16. How do you design DataFrame code to remain maintainable at enterprise scale?
+Advanced DataFrame 17. How do you use `pivot` to reshape data for reporting in a DataFrame?
+Advanced DataFrame 18. How do you implement sessionization with DataFrames and window functions?
+Advanced DataFrame 19. How do you use `collect_set` or `collect_list` in advanced DataFrame aggregation?
+Advanced DataFrame 20. How do you manage nested schemas and arrays in large DataFrame transformations?
+Advanced DataFrame 21. How do you choose between writing to Parquet or JSON in large DataFrame jobs?
+Advanced DataFrame 22. How do you reduce the cost of a DataFrame pipeline with pushdown and pruning?
+Advanced DataFrame 23. How do you handle schema drift in a DataFrame pipeline?
+Advanced DataFrame 24. How do you design a DataFrame pipeline that handles null-heavy data correctly?
+Advanced DataFrame 25. How do you implement top-N queries with DataFrame window functions?
+Advanced DataFrame 26. How do you decide whether to broadcast small tables in a DataFrame join?
+Advanced DataFrame 27. How do you evaluate the risk of using Python UDFs in a large DataFrame job?
+Advanced DataFrame 28. How do you create a reusable DataFrame quality contract for production use?
+Advanced DataFrame 29. How do you build a pipeline for high-cardinality aggregation without blowing up memory?
+Advanced DataFrame 30. How do you manage large nested arrays in a DataFrame and summarize them efficiently?
+Advanced DataFrame 31. How do you use `repartitionByRange` to improve downstream ordering?
+Advanced DataFrame 32. How do you use column pruning to improve read efficiency across many columns?
+Advanced DataFrame 33. How do you optimize a DataFrame query that uses many OR conditions?
+Advanced DataFrame 34. How do you design a DataFrame pipeline that produces partitioned outputs correctly?
+Advanced DataFrame 35. How do you implement a scalable deduplication pattern using DataFrame windows?
+Advanced DataFrame 36. How do you use `na.fill` and `na.drop` in a production-quality DataFrame workflow?
+Advanced DataFrame 37. How do you design a join plan that accounts for skew and high cardinality?
+Advanced DataFrame 38. How do you benchmark and compare alternative DataFrame designs?
+Advanced DataFrame 39. How do you ensure that a DataFrame pipeline remains correct under changed schemas?
+Advanced DataFrame 40. How do you design a robust DataFrame aggregation for large monthly totals?
+Advanced DataFrame 41. How do you implement incremental logic using DataFrame partition filters?
+Advanced DataFrame 42. How do you inspect and act on query plans for very large DataFrame workloads?
+Advanced DataFrame 43. What is the effect of selecting too many columns too late in the pipeline?
+Advanced DataFrame 44. How do you use `functions.expr` to implement SQL-like logic cleanly?
+Advanced DataFrame 45. How do you design a DataFrame pipeline for dataset comparison and validation?
+Advanced DataFrame 46. How do you handle high-cardinality group-by on DataFrames without excessive memory pressure?
+Advanced DataFrame 47. How do you use `struct` and `array` types to model complex datasets?
+Advanced DataFrame 48. What is the value of DataFrame schema validation in large ETL?
+Advanced DataFrame 49. How do you write DataFrame tests for correctness and performance?
+Advanced DataFrame 50. How do you handle table aliases and duplicate names in a multi-table join?
+Advanced DataFrame 51. How do you implement a rolling aggregation in DataFrames?
+Advanced DataFrame 52. How do you design a DataFrame pipeline that preserves order and partitioning?
+Advanced DataFrame 53. How do you use `cache` and `checkpoint` judiciously in complex DataFrame flows?
+Advanced DataFrame 54. How do you design a high-throughput join on skewed keys?
+Advanced DataFrame 55. How do you reason about the cost of wide transformations in DataFrame APIs?
+Advanced DataFrame 56. How do you produce a robust daily summary table using DataFrames?
+Advanced DataFrame 57. How do you create a DataFrame around a nested business schema without losing structure?
+Advanced DataFrame 58. How do you plan a DataFrame pipeline for explainability and maintainability?
+Advanced DataFrame 59. How do you investigate a DataFrame job that is spending most of its time in shuffle?
+Advanced DataFrame 60. How do you compare different aggregation designs for the same business logic?
+Advanced DataFrame 61. How do you reduce duplicate work across a multi-step DataFrame pipeline?
+Advanced DataFrame 62. How do you structure a DataFrame ETL for large-scale operational reporting?
+Advanced DataFrame 63. How do you ensure correct null semantics in DataFrame transformations?
+Advanced DataFrame 64. How do you analyze and tune a skewed DataFrame join?
+Advanced DataFrame 65. How do you integrate SQL and DataFrame APIs in an advanced pipeline?
+Advanced DataFrame 66. How do you compute the latest value per key in a distributed DataFrame?
+Advanced DataFrame 67. How do you use complex windows for event sequencing and change detection?
+Advanced DataFrame 68. How do you build a monitoring layer around DataFrame processing?
+Advanced DataFrame 69. How do you optimize DataFrame writes to partitioned output directories?
+
+--- Advanced - Scenario-Based ---
+Advanced Scenario-Based 1. Scenario: A regulated enterprise analytics pipeline needs to process hundreds of millions of rows daily with deterministic outputs. How would you design the PySpark job architecture?
+Advanced Scenario-Based 2. Scenario: A cluster runs a large DataFrame job that frequently hits memory pressure. How would you diagnose and rework the design?
+Advanced Scenario-Based 3. Scenario: A fact table with highly skewed keys is causing severe execution imbalance. How would you redesign the join and aggregation strategy?
+Advanced Scenario-Based 4. Scenario: An analytics team must compare data from multiple partitioned sources using SQL and DataFrame APIs. How would you structure the pipeline for reliability and performance?
+Advanced Scenario-Based 5. Scenario: A query includes a large join with a small lookup table and a big aggregation. How would you optimize the join order and reduce shuffle cost?
+Advanced Scenario-Based 6. Scenario: A production job fails intermittently due to executor loss and task retries. How would you debug the issue from an execution plan and Spark UI standpoint?
+Advanced Scenario-Based 7. Scenario: A DataFrame pipeline uses Python UDFs for business logic and is becoming the bottleneck. How would you redesign the logic using native functions?
+Advanced Scenario-Based 8. Scenario: A large nested JSON dataset is causing repeated schema problems. How would you normalize and flatten it for SQL analysis?
+Advanced Scenario-Based 9. Scenario: A daily report must show the latest record per customer while handling duplicates and late arrivals. How would you design the window-based solution?
+Advanced Scenario-Based 10. Scenario: A team wants to process a large history table using partition pruning while keeping the business result exact. How would you implement it?
+Advanced Scenario-Based 11. Scenario: A job writes too many small output files, hurting downstream performance. How would you revise the output strategy?
+Advanced Scenario-Based 12. Scenario: A SQL report is slow even though the logic is correct. How would you identify the cause using explain plans and stage metrics?
+Advanced Scenario-Based 13. Scenario: A large job is repeatedly reading the same DataFrame to answer many queries. How would you reduce recomputation while preserving semantics?
+Advanced Scenario-Based 14. Scenario: A dataset contains extreme cardinality in a join key and causes one executor to dominate the work. What advanced design would you apply?
+Advanced Scenario-Based 15. Scenario: A business rule requires identifying customers whose activity falls in multiple buckets over time. How would you implement it efficiently?
+Advanced Scenario-Based 16. Scenario: A pipeline needs to clean invalid records, compute KPIs, and write partitioned outputs in one job. How would you design it for maintainability and speed?
+Advanced Scenario-Based 17. Scenario: A query uses an anti-join to find missing records, but it is unexpectedly slow. How would you diagnose and optimize it?
+Advanced Scenario-Based 18. Scenario: A DataFrame job has to process historical data with partitioned date ranges and must support frequent reruns. How would you design the workflow?
+Advanced Scenario-Based 19. Scenario: A table with millions of unique keys is causing a very large shuffle. What strategy would you use to keep the job manageable?
+Advanced Scenario-Based 20. Scenario: You must compute a moving window metric over event data while minimizing both memory and shuffle usage. How would you approach it?
+Advanced Scenario-Based 21. Scenario: A team needs a robust quality gate before writing aggregated results. How would you design the validation logic in Spark SQL or DataFrames?
+Advanced Scenario-Based 22. Scenario: A dataset is heavily null-sparse, and your aggregation results are inaccurate. How would you audit and correct the logic?
+Advanced Scenario-Based 23. Scenario: A PySpark pipeline must produce a business-friendly output table with stable ordering and partitioning. How would you ensure that?
+Advanced Scenario-Based 24. Scenario: The cluster runs multiple jobs with different resource demands. How would you avoid one job starving others?
+Advanced Scenario-Based 25. Scenario: A query creates too many shuffle partitions, and the execution becomes unstable. How would you tune the design?
+Advanced Scenario-Based 26. Scenario: A team wants a reuse-friendly SQL layer on top of DataFrames. How would you expose and optimize it?
+Advanced Scenario-Based 27. Scenario: Historical data is stored in a partitioned lake and monthly queries are slow due to scanning too many files. How would you optimize the read strategy?
+Advanced Scenario-Based 28. Scenario: A job must compare all rows from two sources and highlight mismatches. How would you design a robust comparison workflow?
+Advanced Scenario-Based 29. Scenario: A query handles large arrays and nested structures and the result is too slow. How would you flatten or transform it intelligently?
+Advanced Scenario-Based 30. Scenario: An enterprise report is based on a high-cardinality fact table and needs stable performance under heavy load. How would you tune it?
+Advanced Scenario-Based 31. Scenario: A DataFrame is repeatedly recomputed in a loop-like workflow, causing degradation. How would you restructure to achieve correct and efficient behavior?
+Advanced Scenario-Based 32. Scenario: You need to calculate a cumulative KPI across many categories while preserving performance. How would you use planning and windows?
+Advanced Scenario-Based 33. Scenario: A job writes many tiny partitions of nearly empty data. How would you compact these partitions safely?
+Advanced Scenario-Based 34. Scenario: A pipeline has a large join followed by a filter. How would you reorder operations to reduce work without breaking correctness?
+Advanced Scenario-Based 35. Scenario: A query is spending most of its time in a broad aggregation. How would you evaluate whether partial aggregation or pre-aggregation is appropriate?
+Advanced Scenario-Based 36. Scenario: A team needs to compare a new and old version of a report for data integrity. How would you validate outputs between versions?
+Advanced Scenario-Based 37. Scenario: An operations dataset includes late events, same-day corrections, and duplicate rows. How would you design the business logic to produce a clean final table?
+Advanced Scenario-Based 38. Scenario: A large dataset is stored with a schema that changes over time. How would you make the DataFrame pipeline resilient to drift?
+Advanced Scenario-Based 39. Scenario: A user wants a top-K result without scanning the whole dataset first. How would you design an efficient approach?
+Advanced Scenario-Based 40. Scenario: A DataFrame pipeline has unexpectedly high shuffle writes. How would you inspect and reduce the cost?
+Advanced Scenario-Based 41. Scenario: A team wants to minimize the cost of repeated SQL queries against a large base table. How would you structure caching and filtering?
+Advanced Scenario-Based 42. Scenario: A job has large output cardinality and is causing downstream strain. How would you reduce the volume while preserving business meaning?
+Advanced Scenario-Based 43. Scenario: A table includes multiple event types and you need first-seen and last-seen timestamps per key. How would you implement it in Spark SQL?
+Advanced Scenario-Based 44. Scenario: A DataFrame job needs to be reproducible across re-runs with exact same results. How would you design the process?
+Advanced Scenario-Based 45. Scenario: A large fact table is partitioned by date and region, and queries usually touch a few partitions. How would you exploit that in the design?
+Advanced Scenario-Based 46. Scenario: A pipeline is reading too many files, causing small-task overhead. How would you consolidate or repartition the input?
+Advanced Scenario-Based 47. Scenario: A report needs to show null rates and row counts per segment. How would you build a quality and validation query?
+Advanced Scenario-Based 48. Scenario: A team is exploring large historical tables to compute daily user activity. How would you design the query to minimize data movement?
+Advanced Scenario-Based 49. Scenario: A DataFrame with nested arrays is producing repeated expensive flattening. How would you optimize the transformation path?
+Advanced Scenario-Based 50. Scenario: A cluster has limited memory, and the job is unstable under large join operations. How would you rework the plan?
+Advanced Scenario-Based 51. Scenario: A system must produce both high-confidence and approximate metrics. How would you design a Spark job to support both?
+Advanced Scenario-Based 52. Scenario: You must compute a complex trend and retention analysis using Spark SQL with large datasets. How would you structure the logic?
+Advanced Scenario-Based 53. Scenario: A DataFrame is used by many downstream pipelines. How would you enforce a stable schema and documentation contract?
+Advanced Scenario-Based 54. Scenario: A team uses broadcast joins for small dimension tables but still sees high memory spikes. How would you debug the root cause?
+Advanced Scenario-Based 55. Scenario: A query returns unexpectedly low values because of null and data-type mismatches. How would you debug and correct it?
+Advanced Scenario-Based 56. Scenario: A production job must be resilient to future data growth without a full re-architecture. How would you plan the scaling strategy?
+Advanced Scenario-Based 57. Scenario: A large historical table is joined to itself for comparison and the job is expensive. How would you optimize the design?
+Advanced Scenario-Based 58. Scenario: A DataFrame pipeline performs many grouped operations. How would you reduce shuffle while preserving accurate aggregation?
+Advanced Scenario-Based 59. Scenario: A table of transactions must be segmented by product and date and then summarized. How would you design the aggregate logic?
+Advanced Scenario-Based 60. Scenario: A high-volume query uses many filters and aggregates. How would you reduce work and still ensure correctness?
+Advanced Scenario-Based 61. Scenario: A Spark job is dominated by a single stage, and the cluster remains underutilized. How would you identify the bottleneck and fix it?
+Advanced Scenario-Based 62. Scenario: An analytics report requires both exact counts and approximate counts for a massive dataset. How would you use Spark features to support both?
+Advanced Scenario-Based 63. Scenario: A DataFrame must be written back to storage in a way that is easy for downstream SQL tools to read. How would you choose the format and layout?
+Advanced Scenario-Based 64. Scenario: A team wants to validate data quality and business metrics in one pass. How would you design the pipeline for both?
+Advanced Scenario-Based 65. Scenario: You must design a large-scale, maintainable Spark SQL workflow with stable partitions, joins, and output semantics. How would you architect it?
