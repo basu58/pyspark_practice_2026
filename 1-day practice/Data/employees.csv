@@ -1,0 +1,6 @@
+emp_id,name,dept_id,salary
+101,Rahul,10.0,80000
+102,Priya,20.0,90000
+103,Amit,10.0,75000
+104,Neha,30.0,85000
+105,Ravi,,70000
