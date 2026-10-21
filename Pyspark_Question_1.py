@@ -93,10 +93,14 @@ orders.show()
 
 # COMMAND ----------
 
-# w = Window.partitionBy(['user_id', 'produt_id', 'category']).orderBy("quantity")
-# orders.withColumn('rank', sum(col('quantity')).over(w)).show()
-
 orders.createOrReplaceTempView('orders')
+
+# COMMAND ----------
+
+w = Window.partitionBy('user_id', 'category').orderBy(col('Total_Quantity').desc(), 'product_id')
+orders.groupBy('user_id', 'category', 'product_id').agg(_sum("quantity").alias('Total_Quantity')).filter(col('Total_Quantity')>2)\
+    .withColumn('rank', dense_rank().over(w)).where(col('rank') <= 3).show()
+
 
 # COMMAND ----------
 

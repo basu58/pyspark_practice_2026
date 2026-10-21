@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # MAGIC %md
 # MAGIC # 🧩 PySpark Interview Question — Medium
 # MAGIC
@@ -71,7 +75,7 @@
 
 # ===== SETUP: Sample Data (run this first) =====
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, lag, lead, when, datediff, row_number, max as _max, min as _min, count as _count
+from pyspark.sql.functions import col, lag, lead, when, datediff, row_number, max as _max, min as _min, count as _count, to_date, count
 from pyspark.sql.window import Window
 
 login_data = [
@@ -107,3 +111,239 @@ logins.show()
 #   7. Group by user_id + streak_group, aggregate for start/end/length
 #   8. Filter: only streaks where the day after streak_end is a "failure"
 #   9. Pick the longest streak per user (tie-break by earliest start_date)
+
+# COMMAND ----------
+
+from pyspark.sql.functions import (
+    col, lag, when, datediff, row_number,
+    sum as _sum, min as _min, max as _max,
+    count as _count, to_date, date_add
+)
+from pyspark.sql.window import Window
+
+# Step 1: Convert login_date to date type
+logins = logins.withColumn(
+    'login_date', to_date('login_date')
+)
+
+# Step 2: Find previous status and date
+w = Window.partitionBy('user_id').orderBy('login_date')
+
+win1 = logins.withColumns({
+    'prev_status': lag('status').over(w),
+    'prev_date': lag('login_date').over(w)
+})
+
+# Step 3: Mark the beginning of every success streak
+win1 = win1.withColumn(
+    'is_streak_start',
+    when(
+        (col('status') == 'success') &
+        (
+            col('prev_status').isNull() |
+            (col('prev_status') != 'success') |
+            (datediff(col('login_date'), col('prev_date')) > 1)
+        ),
+        1
+    ).otherwise(0)
+)
+
+# Step 4: Create a streak ID using cumulative sum
+w_cumsum = (
+    Window.partitionBy('user_id')
+    .orderBy('login_date')
+    .rowsBetween(Window.unboundedPreceding, Window.currentRow)
+)
+
+win1 = win1.withColumn(
+    'streak_group',
+    _sum('is_streak_start').over(w_cumsum)
+)
+
+# Step 5: Aggregate consecutive successful days
+streaks = (
+    win1.filter(col('status') == 'success')
+    .groupBy('user_id', 'streak_group')
+    .agg(
+        _min('login_date').alias('streak_start_date'),
+        _max('login_date').alias('streak_end_date'),
+        _count('*').alias('streak_length')
+    )
+)
+
+# Step 6: Keep only streaks followed by a failure
+failures = (
+    logins.filter(col('status') == 'failure')
+    .select(
+        'user_id',
+        col('login_date').alias('failure_date')
+    )
+)
+
+qualified = (
+    streaks.join(
+        failures,
+        (streaks.user_id == failures.user_id) &
+        (failures.failure_date == date_add(streaks.streak_end_date, 1)),
+        'inner'
+    )
+    .select(
+        streaks.user_id,
+        'streak_start_date',
+        'streak_end_date',
+        'streak_length'
+    )
+)
+
+# Step 7: Select the longest streak per user.
+# Earliest start date wins ties.
+w_rank = Window.partitionBy('user_id').orderBy(
+    col('streak_length').desc(),
+    col('streak_start_date').asc()
+)
+
+result = (
+    qualified
+    .withColumn('rn', row_number().over(w_rank))
+    .filter(col('rn') == 1)
+    .drop('rn')
+)
+
+result.orderBy('user_id').show()
+
+# COMMAND ----------
+
+# DBTITLE 1,Complete Solution
+from pyspark.sql.functions import col, lag, lead, when, datediff, sum as _sum, row_number, to_date, max as _max, min as _min, count as _count
+from pyspark.sql.window import Window
+
+# ============================================================
+# STEP 1: Convert login_date from string to date type
+#         (needed for datediff to work correctly)
+# ============================================================
+df = logins.withColumn('login_date', to_date(col('login_date')))
+
+# ============================================================
+# STEP 2: Peek at adjacent rows using lag() and lead()
+#         This tells us what came before and after each row
+#         within each user's timeline (ordered by date)
+# ============================================================
+w = Window.partitionBy('user_id').orderBy('login_date')
+
+df = df.withColumns({
+    'prev_status': lag('status').over(w),
+    'prev_date':   lag('login_date').over(w),
+    'next_status': lead('status').over(w),
+    'next_date':   lead('login_date').over(w)
+})
+
+print('=== After lag/lead ===')
+df.orderBy('user_id', 'login_date').show()
+
+# ============================================================
+# STEP 3: Flag where a new streak STARTS
+#         A new streak starts when:
+#           - current row is 'success' AND
+#           - (no previous row OR previous != 'success' OR date gap > 1)
+#         This identifies the first row of each consecutive-success run
+# ============================================================
+df = df.withColumn(
+    'is_streak_start',
+    when(
+        (col('status') == 'success') &
+        (
+            col('prev_status').isNull() |
+            (col('prev_status') != 'success') |
+            (datediff(col('login_date'), col('prev_date')) > 1)
+        ),
+        1
+    ).otherwise(0)
+)
+
+print('=== After streak-start flags ===')
+df.select('user_id', 'login_date', 'status', 'prev_status', 'prev_date', 'is_streak_start').orderBy('user_id', 'login_date').show()
+
+# ============================================================
+# STEP 4: Create a streak_group ID using cumulative sum
+#         The cumulative sum of is_streak_start gives each
+#         consecutive-success run a unique group number.
+#         Failure rows get NULL (they break streaks).
+# ============================================================
+w_cumsum = Window.partitionBy('user_id').orderBy('login_date') \
+    .rowsBetween(Window.unboundedPreceding, Window.currentRow)
+
+df = df.withColumn(
+    'streak_group',
+    when(col('status') == 'success', _sum('is_streak_start').over(w_cumsum)).otherwise(None)
+)
+
+print('=== After streak grouping ===')
+df.select('user_id', 'login_date', 'status', 'is_streak_start', 'streak_group').orderBy('user_id', 'login_date').show()
+
+# ============================================================
+# STEP 5: Aggregate each streak group
+#         Get start date, end date, and length (row count)
+#         for each (user_id, streak_group) pair
+# ============================================================
+streaks = (df.filter(col('status') == 'success')
+            .groupBy('user_id', 'streak_group')
+            .agg(
+                _min('login_date').alias('streak_start_date'),
+                _max('login_date').alias('streak_end_date'),
+                _count('login_id').alias('streak_length')
+            ))
+
+print('=== Streaks (before qualification) ===')
+streaks.orderBy('user_id', 'streak_group').show()
+
+# ============================================================
+# STEP 6: Get the next_status and next_date for the LAST
+#         success row in each streak. We need to know what
+#         comes immediately after the streak ends.
+# ============================================================
+w_last = Window.partitionBy('user_id', 'streak_group') \
+    .orderBy(col('login_date').desc())
+
+last_success = (df.filter(col('status') == 'success')
+                .withColumn('rn', row_number().over(w_last))
+                .filter(col('rn') == 1)
+                .select('user_id', 'streak_group', 'next_status', 'next_date'))
+
+print('=== Last success row per streak (with next row info) ===')
+last_success.orderBy('user_id', 'streak_group').show()
+
+# ============================================================
+# STEP 7: Join streaks with last_success and FILTER
+#         A streak qualifies ONLY if:
+#           - next_status = 'failure'  (the day after is a failure)
+#           - datediff(next_date, streak_end_date) = 1  (it's the
+#             immediately following calendar day, no gap)
+#         This excludes streaks that run to the last available
+#         date (next_status would be NULL) or have a gap after.
+# ============================================================
+streaks_with_next = streaks.join(last_success, ['user_id', 'streak_group'], 'inner')
+
+qualifying = streaks_with_next.filter(
+    (col('next_status') == 'failure') &
+    (datediff(col('next_date'), col('streak_end_date')) == 1)
+)
+
+print('=== Qualifying streaks (followed by failure on next day) ===')
+qualifying.select('user_id', 'streak_start_date', 'streak_end_date', 'streak_length').orderBy('user_id', 'streak_start_date').show()
+
+# ============================================================
+# STEP 8: Pick the LONGEST streak per user
+#         Tie-break: earliest streak_start_date wins
+#         Use row_number() with the right ordering, then keep rn=1
+# ============================================================
+w_best = Window.partitionBy('user_id') \
+    .orderBy(col('streak_length').desc(), col('streak_start_date').asc())
+
+result = (qualifying
+          .withColumn('rn', row_number().over(w_best))
+          .filter(col('rn') == 1)
+          .select('user_id', 'streak_start_date', 'streak_end_date', 'streak_length')
+          .orderBy('user_id'))
+
+print('=== FINAL RESULT: Longest qualifying streak per user ===')
+result.show()
