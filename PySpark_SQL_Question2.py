@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # DBTITLE 1,Problem Statement
 # MAGIC %md
 # MAGIC # 🧩 SQL Interview Question — Hard
@@ -108,7 +112,7 @@ purchases_data = [
 columns = ["purchase_id", "customer_id", "purchase_date", "amount"]
 purchases = spark.createDataFrame(purchases_data, columns)
 purchases.createOrReplaceTempView("purchases")
-purchases.show()
+display(purchases)
 
 # ===== YOUR SQL SOLUTION BELOW =====
 # TODO: Write a SQL query using spark.sql("...") that produces the cohort retention table.
