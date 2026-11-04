@@ -146,7 +146,7 @@ from pyspark.sql.functions import *
 w = Window.partitionBy('department').orderBy(col('salary_gap').desc(), col('avg_salary').desc(), col('department'))
 
 grouped_data = employees.groupBy('department').\
-    agg(max('salary').alias('highest_salary'), min('salary').alias('lowest_salary'),\
+    agg(_max('salary').alias('highest_salary'), _min('salary').alias('lowest_salary'),\
         avg('salary').alias('avg_salary'),\
         count_distinct(column('emp_id')).alias('employee_count')).withColumn('avg_salary', round(col('avg_salary'), 2)).\
     filter(col('employee_count') >= 3)
