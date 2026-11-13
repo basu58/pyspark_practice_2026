@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # DBTITLE 1,50 PySpark & SQL Interview Questions
 # MAGIC %md
 # MAGIC # 50 PySpark & SQL Interview Questions
@@ -44,7 +48,16 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select emp_id, emp_name, salary from employees where salary > 5000 order by salary;
 
+# COMMAND ----------
+
+from pyspark.sql.functions import *
+
+# COMMAND ----------
+
+employees.filter(col('salary') > 5000).select('emp_id', 'emp_name', 'salary').orderBy('salary').show()
 
 # COMMAND ----------
 
@@ -60,6 +73,15 @@ display(employees)
 # MAGIC |---|---|---|---|
 # MAGIC | 1 | Amit | 5000 | 500 |
 # MAGIC | 7 | Gita | 6500 | 400 |
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select emp_id, emp_name, salary, commission from employees where department = 'Sales' and commission is not null;
+
+# COMMAND ----------
+
+employees.filter((col('department') == 'Sales') & (col('commission').isNotNull())).drop('department').show()
 
 # COMMAND ----------
 
@@ -80,6 +102,27 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select emp_id, emp_name, department from employees where emp_name rlike 'a$';
+
+# COMMAND ----------
+
+employees.filter(col('emp_name').rlike('a$')).select('emp_id', 'emp_name', 'department').show()
+
+# COMMAND ----------
+
+employees.filter(col('emp_name').like('%a')).select('emp_id', 'emp_name', 'department').show()
+
+# COMMAND ----------
+
+employees.filter(col('emp_name').endswith('a')).select('emp_id', 'emp_name', 'department').show()
+
+# COMMAND ----------
+
+employees.filter(col('emp_name').startswith('B')).select('emp_id', 'emp_name', 'department').show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q4: NULL Commission Detection
 # MAGIC %md
 # MAGIC ## Q4: NULL Commission Detection
@@ -94,6 +137,15 @@ display(employees)
 # MAGIC | 4 | Deepa | IT |
 # MAGIC | 5 | Esha | HR |
 # MAGIC | 8 | Harish | IT |
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select emp_id, emp_name, department from employees where commission is null;
+
+# COMMAND ----------
+
+employees.filter(col('commission').isNull()).select('emp_id', 'emp_name', 'department').show()
 
 # COMMAND ----------
 
@@ -118,6 +170,15 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select emp_name, salary + coalesce(commission, 0) total_payout from employees;
+
+# COMMAND ----------
+
+employees.fillna(0, 'commission').withColumn('total_payout', col('salary') + col('commission')).select('emp_name', 'total_payout').show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q6: Headcount and Avg Salary Per Department
 # MAGIC %md
 # MAGIC ## Q6: Headcount and Average Salary Per Department
@@ -134,6 +195,15 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select department, count(*) headcount, round(avg(salary), 2) avg_salary from employees group by 1;
+
+# COMMAND ----------
+
+employees.groupBy('department').agg(count('*').alias('headcount'), round(avg('salary'), 2).alias('avg_salary')).show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q7: Department With Highest Avg Salary
 # MAGIC %md
 # MAGIC ## Q7: Department With the Highest Average Salary
@@ -145,6 +215,15 @@ display(employees)
 # MAGIC | department | avg_salary |
 # MAGIC |---|---|
 # MAGIC | IT | 7500.0 |
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select department, avg(salary) avg_salary from employees group by 1 order by avg_salary desc limit 1;
+
+# COMMAND ----------
+
+employees.groupBy('department').agg(avg('salary').alias('avg_salary')).orderBy(col('avg_salary').desc()).limit(1).show()
 
 # COMMAND ----------
 
@@ -164,6 +243,18 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select department, emp_name, salary from employees where salary in (select max(salary) max_salary from employees group by department);
+
+# COMMAND ----------
+
+max_sal_df = employees.groupBy('department').agg(max('salary').alias('max_sal'))
+employees.alias('a').join(max_sal_df.alias('b'), 'department', 'left')\
+    .filter(col('salary') == col('max_sal'))\
+        .select('department', 'emp_name', 'salary').show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q9: High Earners Per Department
 # MAGIC %md
 # MAGIC ## Q9: Count of High Earners Per Department
@@ -180,6 +271,15 @@ display(employees)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select department, count(*) high_earners from employees where salary > 5000 group by 1;
+
+# COMMAND ----------
+
+employees.filter(col('salary')>5000).groupBy('department').agg(count('*').alias('high_earners')).show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q10: Total Salary Per Department Desc
 # MAGIC %md
 # MAGIC ## Q10: Total Salary Per Department, Descending
@@ -193,6 +293,15 @@ display(employees)
 # MAGIC | IT | 22500 |
 # MAGIC | Sales | 17500 |
 # MAGIC | HR | 10000 |
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select department, sum(salary) total_salary from employees group by 1 order by total_salary desc;
+
+# COMMAND ----------
+
+employees.groupBy('department').agg(sum('salary').alias('total_salary')).orderBy(col('total_salary').desc()).show()
 
 # COMMAND ----------
 

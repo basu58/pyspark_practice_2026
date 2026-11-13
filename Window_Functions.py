@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # DBTITLE 1,Window Functions Practice
 # MAGIC %md
 # MAGIC # Window Functions Practice
@@ -22,6 +26,11 @@
 
 # COMMAND ----------
 
+from pyspark.sql.functions import *
+from pyspark.sql.window import Window
+
+# COMMAND ----------
+
 # DBTITLE 1,Q1: Sample Data
 # Sample data for Q1
 employees = spark.createDataFrame(
@@ -37,6 +46,16 @@ employees = spark.createDataFrame(
 )
 employees.createOrReplaceTempView("employees")
 display(employees)
+
+# COMMAND ----------
+
+w = Window.partitionBy('department').orderBy(col('salary').desc())
+employees.withColumn('salary_ranking', dense_rank().over(w)).orderBy('department').filter(col('salary_ranking') == 2).drop('salary_ranking').show()
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select *except(ranking) from (select emp_id, emp_name, department, salary, dense_rank()over(partition by department order by salary desc) ranking from employees) where ranking = 2 order by department;
 
 # COMMAND ----------
 
@@ -73,6 +92,26 @@ display(daily_sales)
 
 # COMMAND ----------
 
+from pyspark.sql.functions import *
+from pyspark.sql.window import Window
+
+# COMMAND ----------
+
+w = Window.orderBy('sale_date').rowsBetween(Window.unboundedPreceding, Window.currentRow)
+daily_sales.withColumn('running_total', sum(col('revenue')).over(w)).show()
+
+# COMMAND ----------
+
+w = Window.orderBy('sale_date')
+daily_sales.withColumn('running_total', sum(col('revenue')).over(w)).show()
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select sale_date, revenue, sum(revenue)over(order by sale_date rows between unbounded preceding and current row) running_total from daily_sales;
+
+# COMMAND ----------
+
 # DBTITLE 1,Q3: Month-over-Month Revenue Growth
 # MAGIC %md
 # MAGIC ## Q3: Month-over-Month Revenue Growth
@@ -101,6 +140,19 @@ monthly_sales = spark.createDataFrame(
 )
 monthly_sales.createOrReplaceTempView("monthly_sales")
 display(monthly_sales)
+
+# COMMAND ----------
+
+w = Window.orderBy('sale_month')
+monthly_sales.withColumns({
+    'prev_revenue': lag('revenue').over(w),
+    'growth_pct':  round((col('revenue') - col('prev_revenue')) / col('prev_revenue') * 100, 2)
+    }).show()
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select *, round((revenue - prev_revenue)/prev_revenue * 100, 2) growth_pct from (select sale_month, revenue, lag(revenue)over(order by sale_month) prev_revenue from monthly_sales) order by sale_month;
 
 # COMMAND ----------
 
@@ -133,6 +185,17 @@ dept_employees = spark.createDataFrame(
 )
 dept_employees.createOrReplaceTempView("dept_employees")
 display(dept_employees)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select emp_id, emp_name, department, salary, round(dept_avg, 2) dept_avg from (select emp_id, emp_name, department, salary, avg(salary)over(partition by department) dept_avg from dept_employees) where salary > dept_avg order by department, salary desc;
+
+# COMMAND ----------
+
+w = Window.partitionBy('department')
+dept_employees.withColumn('dept_avg', round(avg(col('salary')).over(w), 2))\
+    .filter(col('salary') > col('dept_avg')).orderBy('department', col('salary').desc()).show()
 
 # COMMAND ----------
 
@@ -177,6 +240,16 @@ display(purchases)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from (select customer, product, amount, dense_rank()over(partition by customer order by amount desc) purchase_rank from purchases) where purchase_rank <= 3 order by customer, purchase_rank;
+
+# COMMAND ----------
+
+w = Window.partitionBy('customer').orderBy(col('amount').desc())
+purchases.withColumn('purchase_rank', dense_rank().over(w)).filter(col('purchase_rank') <= 3).select('customer', 'product', 'amount', 'purchase_rank').orderBy('customer', 'purchase_rank').show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q6: Days Between Consecutive Orders
 # MAGIC %md
 # MAGIC ## Q6: Days Between Consecutive Orders
@@ -196,6 +269,10 @@ display(purchases)
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 # DBTITLE 1,Q6: Sample Data
 # Sample data for Q6
 orders = spark.createDataFrame(
@@ -209,6 +286,18 @@ orders = spark.createDataFrame(
 )
 orders.createOrReplaceTempView("orders")
 display(orders)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select *except(prev_order_date), date_diff(order_date, prev_order_date) days_since_prev_order from (select order_id, customer, order_date, lag(order_date)over(partition by customer order by order_date) prev_order_date from orders) order by customer, order_date;
+
+# COMMAND ----------
+
+w = Window.partitionBy('customer').orderBy(col('order_date'))
+orders.withColumn('prev_order_date', lag(col('order_date')).over(w))\
+    .withColumn('days_since_prev_order', date_diff(col('order_date'), col('prev_order_date')))\
+        .drop('prev_order_date').orderBy('customer', 'order_date').show()
 
 # COMMAND ----------
 
@@ -244,6 +333,30 @@ logins = spark.createDataFrame(
 )
 logins.createOrReplaceTempView("logins")
 display(logins)
+
+# COMMAND ----------
+
+w = Window.partitionBy('user_name').orderBy('login_date')
+logins.withColumn('login_date', to_date('login_date'))\
+    .withColumn('rn', row_number().over(w))\
+    .withColumn('grp', expr("date_sub(login_date, rn)"))\
+    .groupBy('user_name', 'grp')\
+    .agg(
+        min('login_date').alias('first_login'),
+        max('login_date').alias('last_login'),
+        count('*').alias('streak_days')
+    )\
+    .drop('grp').filter(col('streak_days') >= 3)\
+    .show()
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC with a1 as(
+# MAGIC     select user_name, login_date, row_number()over(partition by user_name order by login_date) rn from logins
+# MAGIC ),
+# MAGIC b as (select *, date_sub(login_date, rn) grp from a1)
+# MAGIC select *except(grp) from (select user_name, grp, min(login_date) first_login, max(login_date) last_login, count(*) streak_days from b group by 1,2 having streak_days = 3);
 
 # COMMAND ----------
 
@@ -319,6 +432,18 @@ display(salaries)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC with a as(select emp_name, department, salary, max(salary)over(partition by department order by salary desc) dept_max from salaries)
+# MAGIC select *, dept_max - salary gap_to_max from a order by 2, 3 desc; 
+
+# COMMAND ----------
+
+w = Window.partitionBy('department').orderBy(col('salary').desc())
+salaries.withColumn('dept_max', max('salary').over(w))\
+    .withColumn('gap_to_max', col('dept_max') - col('salary')).show()
+
+# COMMAND ----------
+
 # DBTITLE 1,Q10: Salary Rank and Department Headcount
 # MAGIC %md
 # MAGIC ## Q10: Salary Rank and Department Headcount
@@ -355,3 +480,8 @@ employee_salaries = spark.createDataFrame(
 )
 employee_salaries.createOrReplaceTempView("employee_salaries")
 display(employee_salaries)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select emp_name, department, salary, rank()over(partition by department order by salary desc) salary_rank, count(emp_name)over(partition by department) head_count from employee_salaries order by department, salary desc;
